@@ -1,0 +1,11 @@
+feature,kind,unseen_2025_fraction,mean_2024,mean_2025,standardized_mean_shift,missing_2024_fraction,missing_2025_fraction
+season,category,0.0,,,,,
+district,category,0.0,,,,,
+crop_name,category,0.0,,,,,
+farmer_type,category,0.0,,,,,
+harvest_month,category,0.0,,,,,
+n_plots_crop,numeric,,1.0708519226683664,1.0758593363051014,0.014382672975521359,0.0,0.0
+crop_plot_area_ha_total,numeric,,1.0756768636948517,1.2286616848470133,0.00847312920254178,0.0,0.0
+num_crops_in_plot,numeric,,3.0402798886056233,2.6729234108580284,-0.2483363390632151,0.0,0.0
+rain_30d_before_mm,numeric,,86.320296152054,101.82553063449609,0.2775506959360464,0.0,0.0
+humidity_mean_7d_before_pct,numeric,,76.70718436337353,76.37573223315701,-0.04979339811396233,0.0,0.0

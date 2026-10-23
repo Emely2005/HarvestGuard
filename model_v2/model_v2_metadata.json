@@ -1,0 +1,30 @@
+{
+  "champion": "Hurdle XGBoost",
+  "target": "actionable_loss_rate_pct",
+  "feature_set": "raw",
+  "eligible_crops": [
+    "Banana for beer",
+    "Bush bean",
+    "Cassava",
+    "Climbing bean",
+    "Dessert banana",
+    "Groundnut",
+    "Irish potato",
+    "Maize",
+    "Paddy rice",
+    "Pea",
+    "Sorghum",
+    "Soybean",
+    "Sunflower",
+    "Sweet potato",
+    "Tomato"
+  ],
+  "cv_group": "district x crop x season",
+  "selection_rule": "2024 only: models/trials near best Tweedie deviance, then maximize district NDCG@5",
+  "test_year": 2025,
+  "production_burden_available": false,
+  "survey_weights_available": false,
+  "weather_note": "Historical realized post-harvest weather is a proxy. Live scoring should use forecast values available at harvest time.",
+  "storage_method_note": "Storage method is not present in this cleaned table; do not claim it as a model driver.",
+  "model_ready_for_national_allocation": false
+}

@@ -1,0 +1,84 @@
+UNIFIED POST-HARVEST DATASET - QUALITY REPORT
+============================================================
+
+SOURCE / MERGE CHECKS
+- 2024_A_practice_merge_coverage: 0.9997203152809561
+- 2024_A_practice_rows: 17506
+- 2024_A_production_rows: 39330
+- 2024_B_practice_merge_coverage: 1.0
+- 2024_B_practice_rows: 17261
+- 2024_B_production_rows: 35584
+- 2024_C_practice_merge_coverage: 1.0
+- 2024_C_practice_rows: 1632
+- 2024_C_production_rows: 1949
+- 2024_farmer_crop_rows: 71706
+- 2024_plot_crop_rows_after_merge: 76863
+- 2025_B_raw_practice_duplicate_keys: 0
+- 2025_B_raw_practice_merge_coverage: 1.0
+- 2025_B_raw_practice_rows: 17100
+- 2025_B_raw_production_rows: 32920
+- 2025_farmer_crop_rows: 64331
+- 2025_plot_crop_rows_after_cleaning: 69173
+- 2025_user_merged_columns: 164
+- 2025_user_merged_rows: 69173
+- boundary_district_count: 30
+- climate_daily_rows: 32880
+- climate_date_max: 2025-12-31
+- climate_date_min: 2023-01-01
+- climate_missing_humidity: 0
+- climate_missing_rain: 0
+- climate_missing_temperature: 0
+- regression_feature_count: 14
+- regression_rows_with_valid_target: 125412
+- regression_target: actionable_loss_rate_pct
+- test_2025_rows: 59308
+- train_2024_rows: 66104
+
+FINAL DATASET CHECKS
+- rows: 136,037
+- columns: 61
+- duplicate farmer-crop observation IDs: 0
+- districts: 30
+- district names: Bugesera, Burera, Gakenke, Gasabo, Gatsibo, Gicumbi, Gisagara, Huye, Kamonyi, Karongi, Kayonza, Kicukiro, Kirehe, Muhanga, Musanze, Ngoma, Ngororero, Nyabihu, Nyagatare, Nyamagabe, Nyamasheke, Nyanza, Nyarugenge, Nyaruguru, Rubavu, Ruhango, Rulindo, Rusizi, Rutsiro, Rwamagana
+
+ROWS BY YEAR / SEASON
+- 2024 Season A: 36,469
+- 2024 Season B: 33,333
+- 2024 Season C: 1,904
+- 2025 Season A: 31,866
+- 2025 Season B: 30,640
+- 2025 Season C: 1,825
+
+TARGET QUALITY
+- complete actionable binary targets: 125,413
+- positive actionable-loss cases: 8,592
+- positive storage-loss cases: 721
+- positive processing-loss cases: 7,467
+- positive packaging-loss cases: 1,236
+- target groups excluded for any negative actionable-loss source value: 304
+- target groups excluded for inconsistent repeated production/loss values: 10
+- impossible actionable targets removed (> production): 10
+- rows with negative raw storage loss removed: 304
+
+CLIMATE COVERAGE
+- 2024 Season A: 36,469/36,469 complete (100.0%)
+- 2024 Season B: 33,333/33,333 complete (100.0%)
+- 2024 Season C: 1,904/1,904 complete (100.0%)
+- 2025 Season A: 31,866/31,866 complete (100.0%)
+- 2025 Season B: 30,640/30,640 complete (100.0%)
+- 2025 Season C: 1,825/1,825 complete (100.0%)
+
+CLIMATE WINDOW NOTE
+- available district climate span: 2023-01-01 to 2025-12-31.
+- overall complete harvest-window climate coverage: 100.0%.
+- All final observations have complete requested climate windows.
+
+INTENTIONALLY EXCLUDED MODULES / FIELDS
+- 2024 Screening modules: sampling/land screening information, not needed for the farmer-crop post-harvest target.
+- Detailed 2024 fertilizer/pesticide modules: the production file already contains core yes/no use flags; detailed costs/types would add sparsity and weak post-harvest relevance.
+- Free-text storage descriptions and Kinyarwanda open text: extremely sparse and not needed for the core model; avoiding them prevents artificial category fragmentation.
+- Post-outcome quantities sold/consumed/transformed: excluded from final model-ready schema to reduce leakage.
+
+RECOMMENDED MODELING RULE
+- Do not random-split rows as the only validation. Prefer temporal validation (e.g., train on 2024 and evaluate on 2025) and compare against a simpler baseline.
+- Main ML task is regression on actionable_loss_rate_pct only. Binary loss labels are QA/EDA only and are not included in the model-ready CSV.

@@ -1,0 +1,84 @@
+crop_name,n,positives,districts,seasons,eligible,evidence_warning
+Amaranth,170,3,28,3,False,Very few positive cases: avoid crop-specific fitting
+Apple,1,0,1,1,False,Very few positive cases: avoid crop-specific fitting
+Artemesia,1,0,1,1,False,Very few positive cases: avoid crop-specific fitting
+Avocado,62,3,18,2,False,Very few positive cases: avoid crop-specific fitting
+Banana for beer,5886,352,30,2,True,
+Beet root,20,0,9,3,False,Very few positive cases: avoid crop-specific fitting
+Black eggplant,9,0,6,3,False,Very few positive cases: avoid crop-specific fitting
+Brocolli,5,0,2,3,False,Very few positive cases: avoid crop-specific fitting
+Bush bean,9824,1102,30,3,True,
+Cabbage,224,7,30,3,False,Very few positive cases: avoid crop-specific fitting
+Carrot,141,1,25,3,False,Very few positive cases: avoid crop-specific fitting
+Cassava,3365,89,30,2,True,
+Cauliflower,7,0,3,2,False,Very few positive cases: avoid crop-specific fitting
+Celery,3,0,3,2,False,Very few positive cases: avoid crop-specific fitting
+Chia seeds,12,2,5,2,False,Very few positive cases: avoid crop-specific fitting
+Climbing bean,6009,424,30,3,True,
+Coffee,617,1,28,2,False,Very few positive cases: avoid crop-specific fitting
+Cooking banana,5208,2,30,2,False,Very few positive cases: avoid crop-specific fitting
+Cucumber,12,0,7,3,False,Very few positive cases: avoid crop-specific fitting
+Desmodium,3,0,2,2,False,Very few positive cases: avoid crop-specific fitting
+Dessert banana,4713,59,30,2,True,
+Eggplant,402,5,30,3,False,Very few positive cases: avoid crop-specific fitting
+French beans,67,6,21,3,False,Very few positive cases: avoid crop-specific fitting
+Garlic,26,1,5,2,False,Very few positive cases: avoid crop-specific fitting
+Geranium,2,0,1,2,False,Very few positive cases: avoid crop-specific fitting
+Groundnut,1135,16,23,3,True,Very few positive cases: avoid crop-specific fitting
+Guava,2,1,2,1,False,Very few positive cases: avoid crop-specific fitting
+Irish potato,2818,91,30,3,True,
+Jack fruit,1,0,1,1,False,Very few positive cases: avoid crop-specific fitting
+Leek,8,0,5,3,False,Very few positive cases: avoid crop-specific fitting
+Lemon,6,0,4,2,False,Very few positive cases: avoid crop-specific fitting
+Lemongrass,2,0,1,2,False,Very few positive cases: avoid crop-specific fitting
+Levendine,2,0,1,2,False,Very few positive cases: avoid crop-specific fitting
+Macadamia,34,2,8,2,False,Very few positive cases: avoid crop-specific fitting
+Maize,10416,963,30,2,True,
+Maize for fodder,30,1,9,2,False,Very few positive cases: avoid crop-specific fitting
+Mandoline,2,0,2,1,False,Very few positive cases: avoid crop-specific fitting
+Mango,30,4,9,2,False,Very few positive cases: avoid crop-specific fitting
+Millet,58,16,12,2,False,Very few positive cases: avoid crop-specific fitting
+Mucuna,1,0,1,1,False,Very few positive cases: avoid crop-specific fitting
+Napia grass,54,0,21,2,False,Very few positive cases: avoid crop-specific fitting
+Napia grass for fodder,318,0,28,2,False,Very few positive cases: avoid crop-specific fitting
+Onion,113,4,25,3,False,Very few positive cases: avoid crop-specific fitting
+Orange,12,0,5,2,False,Very few positive cases: avoid crop-specific fitting
+Other annual crops (specify),7,1,6,2,False,Very few positive cases: avoid crop-specific fitting
+Other cereal(specify),5,0,1,2,False,Very few positive cases: avoid crop-specific fitting
+Other fodder crop (specify),62,1,16,2,False,Very few positive cases: avoid crop-specific fitting
+Other perennial crop (specify),11,2,7,2,False,Very few positive cases: avoid crop-specific fitting
+Other pulse(specify),3,0,3,1,False,Very few positive cases: avoid crop-specific fitting
+Other seasonal crops (specify),15,0,6,3,False,Very few positive cases: avoid crop-specific fitting
+Other seasonal vegetables (specify),19,0,9,3,False,Very few positive cases: avoid crop-specific fitting
+Other tubers(specify),1,0,1,1,False,Very few positive cases: avoid crop-specific fitting
+Paddy rice,376,178,21,2,True,
+Palm,3,0,2,2,False,Very few positive cases: avoid crop-specific fitting
+Papaya,19,1,7,2,False,Very few positive cases: avoid crop-specific fitting
+Passion fruits,34,0,12,2,False,Very few positive cases: avoid crop-specific fitting
+Patchouli,2,0,1,2,False,Very few positive cases: avoid crop-specific fitting
+Pea,842,11,28,3,True,Very few positive cases: avoid crop-specific fitting
+Pepper,67,8,21,3,False,Very few positive cases: avoid crop-specific fitting
+Pineapple,76,2,15,2,False,Very few positive cases: avoid crop-specific fitting
+Pumpkin,49,0,20,2,False,Very few positive cases: avoid crop-specific fitting
+Pyrethrum,77,0,3,2,False,Very few positive cases: avoid crop-specific fitting
+Rosemary,9,0,3,2,False,Very few positive cases: avoid crop-specific fitting
+Setaria,4,0,2,2,False,Very few positive cases: avoid crop-specific fitting
+Small red bean,12,0,9,2,False,Very few positive cases: avoid crop-specific fitting
+Sorghum,2824,451,30,2,True,
+Soybean,2307,106,29,3,True,
+Soybean for fodder,3,2,1,2,False,Very few positive cases: avoid crop-specific fitting
+Spinach,11,0,5,3,False,Very few positive cases: avoid crop-specific fitting
+Stevia,1,0,1,1,False,Very few positive cases: avoid crop-specific fitting
+Strawberry,2,0,1,2,False,Very few positive cases: avoid crop-specific fitting
+Sugar cane,156,0,16,2,False,Very few positive cases: avoid crop-specific fitting
+Sunflower,253,12,18,2,True,Very few positive cases: avoid crop-specific fitting
+Sweet pepper,47,1,20,3,False,Very few positive cases: avoid crop-specific fitting
+Sweet potato,5356,61,30,3,True,
+Taro,1004,3,30,2,False,Very few positive cases: avoid crop-specific fitting
+Tobacco,10,0,7,2,False,Very few positive cases: avoid crop-specific fitting
+Tomato,360,82,30,3,True,
+Tree tomato,34,0,10,2,False,Very few positive cases: avoid crop-specific fitting
+Tripsacum,10,0,4,2,False,Very few positive cases: avoid crop-specific fitting
+Water melon,5,0,4,2,False,Very few positive cases: avoid crop-specific fitting
+Wheat,180,12,13,2,False,Very few positive cases: avoid crop-specific fitting
+Yams,17,0,9,2,False,Very few positive cases: avoid crop-specific fitting

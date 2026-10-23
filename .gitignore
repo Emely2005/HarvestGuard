@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.runtime/
+.streamlit/secrets.toml
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+.aws/
+.codex/
+**/profile_quantity_predictions_*.csv
+postharvest_regression_model_ready*.csv
+*.zip

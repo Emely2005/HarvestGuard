@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "candidate_version": "harvestguard-v3-candidate-1",
+  "champion": "Trial 6: ML=1, prior alpha=0",
+  "target": "actionable_loss_rate_pct",
+  "target_unit": "percent of production, 0 to 100",
+  "features": [
+    "season",
+    "district",
+    "crop_name",
+    "farmer_type",
+    "harvest_month",
+    "n_plots_crop",
+    "crop_plot_area_ha_total",
+    "num_crops_in_plot",
+    "rain_30d_before_mm",
+    "humidity_mean_7d_before_pct"
+  ],
+  "feature_policy": "at_harvest",
+  "eligible_crops": [
+    "Banana for beer",
+    "Bush bean",
+    "Cassava",
+    "Climbing bean",
+    "Dessert banana",
+    "Groundnut",
+    "Irish potato",
+    "Maize",
+    "Paddy rice",
+    "Pea",
+    "Sorghum",
+    "Soybean",
+    "Sunflower",
+    "Sweet potato",
+    "Tomato"
+  ],
+  "model_file": "model_v3_candidate.joblib",
+  "module_file": "harvestguard_model_v3.py",
+  "development_year": 2024,
+  "temporal_validation_year": 2025,
+  "2025_previously_inspected": true,
+  "new_uninspected_period_required": true,
+  "cv_grouping": "district x crop x season",
+  "ranking_min_profiles": 10,
+  "temporal_checks": {
+    "A+B district MAE beats exact history": true,
+    "A+B NDCG beats exact history": false,
+    "A+B top5 overlap beats exact history": false
+  },
+  "survey_weights_available": false,
+  "production_burden_available": false,
+  "model_ready_for_national_allocation": false,
+  "versions": {
+    "python": "3.13.16",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1",
+    "xgboost": "3.4.1"
+  },
+  "uncertainty": "point estimates only; survey-design uncertainty not established",
+  "ai_contract": "Use exported aggregate predictions and actual evidence. Do not invent local drivers or treatment benefits."
+}

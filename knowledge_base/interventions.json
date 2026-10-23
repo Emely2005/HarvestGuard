@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "version": "2026-10-21-pilot-1",
+  "review_status": "Source links checked; Rwanda agronomic review pending",
+  "sources": {
+    "fao_maize_handling": {
+      "title": "FAO: Inspection, sampling and analysis of maize and groundnuts for aflatoxin",
+      "url": "https://www.fao.org/4/x5036e/x5036E1d.htm",
+      "evidence_type": "Technical guidance",
+      "scope": "General maize handling guidance; local operating limits need agronomist confirmation.",
+      "reviewed_on": "2026-10-21"
+    },
+    "likhayo_2018": {
+      "title": "Likhayo et al. (2018): Maize grain stored in hermetic bags (FAO AGRIS record)",
+      "url": "https://agris.fao.org/search/en/providers/122512/records/669fb273429562386250a217",
+      "evidence_type": "Experimental study abstract indexed by FAO AGRIS",
+      "scope": "One hot, dry site; results are not a Rwanda-specific effectiveness estimate.",
+      "reviewed_on": "2026-10-21"
+    },
+    "fao_fresh_packaging": {
+      "title": "FAO: Small-Scale Postharvest Handling Practices, packing and packaging materials",
+      "url": "https://www.fao.org/4/ae075e/ae075e08.htm",
+      "evidence_type": "Technical guidance for fresh produce",
+      "scope": "General fresh-produce guidance applied to tomato as a candidate practice; local trials needed.",
+      "reviewed_on": "2026-10-21"
+    }
+  },
+  "interventions": [
+    {
+      "id": "maize_moisture_before_storage",
+      "crops": ["Maize"],
+      "stage": "storage",
+      "sequence": 1,
+      "title": "Check moisture and drying before storage",
+      "action": "Measure grain moisture; dry wet maize before storage and protect it from rewetting.",
+      "when_to_consider": "A field check finds wet grain or inadequate drying.",
+      "check_first": "Verify the storage moisture limit with the agronomist and intended storage system.",
+      "evidence_summary": "FAO identifies moisture control before storage as a central mould-prevention measure.",
+      "source_id": "fao_maize_handling"
+    },
+    {
+      "id": "maize_hermetic_storage",
+      "crops": ["Maize"],
+      "stage": "storage",
+      "sequence": 2,
+      "title": "Assess hermetic storage for adequately dried maize",
+      "action": "Evaluate intact hermetic bags once grain dryness is verified.",
+      "when_to_consider": "Storage insect losses are confirmed and dry grain can be maintained.",
+      "check_first": "Confirm moisture, bag integrity, handling training and local affordability; do not seal wet grain.",
+      "evidence_summary": "A maize experiment found protection for dry grain, but wetter grain developed more discolouration. Its findings require local validation.",
+      "source_id": "likhayo_2018"
+    },
+    {
+      "id": "maize_shelling_damage",
+      "crops": ["Maize"],
+      "stage": "processing",
+      "sequence": 3,
+      "title": "Inspect shelling damage",
+      "action": "Review sheller operation and grain condition to reduce kernel breakage.",
+      "when_to_consider": "Inspection identifies broken kernels associated with shelling.",
+      "check_first": "Check moisture and equipment settings with a trained operator.",
+      "evidence_summary": "FAO connects wet-grain shelling and high sheller speed with kernel damage, which can contribute to mould problems.",
+      "source_id": "fao_maize_handling"
+    },
+    {
+      "id": "tomato_protective_packaging",
+      "crops": ["Tomato"],
+      "stage": "packaging",
+      "sequence": 1,
+      "title": "Assess protective, ventilated packaging",
+      "action": "Trial clean, sturdy, ventilated crates and avoid overfilling or loose packing.",
+      "when_to_consider": "A field check finds bruising or compression damage during packing and stacking.",
+      "check_first": "Compare handling, cleaning, availability and reuse costs with existing packaging.",
+      "evidence_summary": "FAO guidance favours rigid protection and ventilation for fresh produce, with careful fill levels to limit bruising.",
+      "source_id": "fao_fresh_packaging"
+    }
+  ]
+}

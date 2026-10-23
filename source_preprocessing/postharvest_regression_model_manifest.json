@@ -1,0 +1,39 @@
+{
+  "split_column_not_in_X": "year",
+  "recommended_temporal_split": {
+    "train": "year == 2024",
+    "test": "year == 2025"
+  },
+  "features_X": [
+    "season",
+    "district",
+    "crop_name",
+    "farmer_type",
+    "harvest_month",
+    "n_plots_crop",
+    "crop_plot_area_ha_total",
+    "num_crops_in_plot",
+    "rain_30d_before_mm",
+    "rain_14d_after_mm",
+    "rainy_days_14d_after",
+    "humidity_mean_7d_before_pct",
+    "humidity_mean_14d_after_pct",
+    "temperature_mean_14d_after_c"
+  ],
+  "target_y": "actionable_loss_rate_pct",
+  "excluded_from_target": [
+    "transport loss",
+    "sales loss"
+  ],
+  "excluded_from_X": [
+    "IDs and survey QA flags",
+    "binary loss indicators",
+    "all loss component columns",
+    "post-harvest quantities/disposition fields",
+    "storage_type (96% missing and not reliably known before scoring)",
+    "province/crop_category redundant with district/crop_name",
+    "farmer age/gender demographics",
+    "fertilizer/seed/irrigation/erosion variables with weak direct post-harvest relevance",
+    "actual production quantities reserved for later burden/prioritization rather than intrinsic loss-rate prediction"
+  ]
+}

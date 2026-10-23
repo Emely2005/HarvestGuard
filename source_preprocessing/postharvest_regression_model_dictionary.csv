@@ -1,0 +1,17 @@
+column,role,description
+year,split_only,"Calendar/survey year. Use for temporal split (2024 train, 2025 test); do NOT include in X."
+season,X_categorical,NISR agricultural season; captures seasonal crop/handling context.
+district,X_categorical,District whose persistent local post-harvest context is being scored.
+crop_name,X_categorical,"Crop identity; crops differ strongly in drying, processing, packaging and storage behavior."
+farmer_type,X_categorical,Farm/organization scale type; proxy for operating/storage/processing capacity.
+harvest_month,X_numeric_or_categorical,Month of estimated harvest; captures timing beyond broad season labels.
+n_plots_crop,X_numeric,Number of plots on which the farmer grows the crop; handling/fragmentation scale.
+crop_plot_area_ha_total,X_numeric,Total sampled plot area for this farmer-crop; pre-loss scale/exposure proxy.
+num_crops_in_plot,X_numeric,Mean number of crops on relevant plots; proxy for intercropping/handling complexity.
+rain_30d_before_mm,X_numeric,CHIRPS rainfall in 30 days before estimated harvest.
+rain_14d_after_mm,X_numeric_forecast_at_deployment,CHIRPS rainfall in 14 days after harvest historically; use forecast in live scoring.
+rainy_days_14d_after,X_numeric_forecast_at_deployment,Number of >=1mm rainy days after harvest historically; use forecast in live scoring.
+humidity_mean_7d_before_pct,X_numeric,NASA POWER mean relative humidity in 7 days before harvest.
+humidity_mean_14d_after_pct,X_numeric_forecast_at_deployment,NASA POWER mean relative humidity after harvest historically; use forecast in live scoring.
+temperature_mean_14d_after_c,X_numeric_forecast_at_deployment,NASA POWER mean temperature after harvest historically; use forecast in live scoring.
+actionable_loss_rate_pct,y_regression,Continuous target: (storage + processing + packaging loss) / total crop production * 100.

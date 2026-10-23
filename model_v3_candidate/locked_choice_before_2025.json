@@ -1,0 +1,71 @@
+{
+  "choice": {
+    "kind": "blend",
+    "ml_weight": 1.0,
+    "alpha": 0,
+    "params": {
+      "family": "hurdle",
+      "severity_objective": "gamma",
+      "severity_power": 1.763641290449772,
+      "tweedie_power": 1.5,
+      "learning_rate": 0.06059156005500084,
+      "clf_depth": 3,
+      "reg_depth": 3,
+      "clf_min_child": 10.573887093651999,
+      "reg_min_child": 7.7071208382613845,
+      "subsample": 0.8478701341024801,
+      "colsample": 0.8578021131346412,
+      "reg_alpha": 0.0020092876527318306,
+      "reg_lambda": 4.815035925095872,
+      "weight_mode": "district_balanced",
+      "calibration": "none"
+    }
+  },
+  "features": [
+    "season",
+    "district",
+    "crop_name",
+    "farmer_type",
+    "harvest_month",
+    "n_plots_crop",
+    "crop_plot_area_ha_total",
+    "num_crops_in_plot",
+    "rain_30d_before_mm",
+    "humidity_mean_7d_before_pct"
+  ],
+  "fingerprint": "4f0fb31a09c8119a0ecb5d7a2ccf53c06dc8e7a0100b0c86de45fa592f5ef014",
+  "config": {
+    "max_trees": 500,
+    "n_splits": 3,
+    "min_profiles": 10,
+    "entity_column": null
+  },
+  "selection": {
+    "model": "Trial 6: ML=1, prior alpha=0",
+    "alpha": NaN,
+    "mae_pp": 0.4391498217242469,
+    "rmse_pp": 2.2424454809677563,
+    "r2": 0.008478346472729825,
+    "mean_predicted_pct": 0.20770714308332608,
+    "mean_observed_pct": 0.2825314275254586,
+    "district_mae_pp": 0.21646717147275635,
+    "district_rmse_pp": 0.40504800538853764,
+    "tweedie_deviance_floor_0_001pp": 0.3073986085411284,
+    "ndcg5_macro": 0.557428662913546,
+    "spearman_macro": 0.41493088183271526,
+    "top5_overlap_macro": 0.5150470219435737,
+    "ranking_cohorts": 29,
+    "supported_district_groups": 658
+  },
+  "selection_rule": "2024 OOF: best macro NDCG@5 with district MAE <= 1.10 times the best historical baseline; zero predictor diagnostic only",
+  "versions": {
+    "python": "3.13.16",
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scipy": "1.16.3",
+    "sklearn": "1.6.1",
+    "xgboost": "3.4.1"
+  },
+  "test_year": 2025,
+  "new_unseen_year_still_required": true
+}

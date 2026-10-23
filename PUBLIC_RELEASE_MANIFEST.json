@@ -1,0 +1,432 @@
+[
+  {
+    "path": ".dockerignore",
+    "sha256": "dd7da35ef5a98832bfbf7870caa8a65735bf59bfef9e4f7a38c5933696a17fbf",
+    "bytes": 308
+  },
+  {
+    "path": ".gitignore",
+    "sha256": "f848fe07d22926f17310a285066d547d91ef0aaabac336f66d74fa1c610396cd",
+    "bytes": 209
+  },
+  {
+    "path": ".streamlit/config.toml",
+    "sha256": "eedf0519edd4de8ad4443da0a901a7e03084ed24879e6270623d2b651e2e0fa1",
+    "bytes": 155
+  },
+  {
+    "path": ".streamlit/secrets.toml.example",
+    "sha256": "31d712a6cb9194bfc66a6d89f210212c8541195b25ed111199fe72ae43103342",
+    "bytes": 246
+  },
+  {
+    "path": "AI_SETUP.md",
+    "sha256": "77abca3101d693db5dbd6cac2e0d0c3fc540bc26ee843acd813787fb3494265a",
+    "bytes": 12144
+  },
+  {
+    "path": "dashboard.py",
+    "sha256": "d9b2bd2a75d7d89803e12cfad50f184ddf8373a61b901934de661d5bbbe15c98",
+    "bytes": 215
+  },
+  {
+    "path": "ddi-documentation-english-113.pdf",
+    "sha256": "3783af530b66de79f9b31988823f5e53224d7595d3d9f9d55d27a939d89880ef",
+    "bytes": 496398
+  },
+  {
+    "path": "ddi-documentation-english-124.pdf",
+    "sha256": "2835b91a5545d39cb9111ef2b329bdec0dcbfbf8437cbe3677e9743df3173c01",
+    "bytes": 459102
+  },
+  {
+    "path": "DEPLOYMENT.md",
+    "sha256": "9e0a9e5d5f037e7fe7dace1330f0a79832612fa1d928097edd1751cb1f1311b4",
+    "bytes": 5129
+  },
+  {
+    "path": "Dockerfile",
+    "sha256": "323af5928ad9471bb570b42d36cb91ba09a3e9ca41a483fd9522179e751b5d8b",
+    "bytes": 739
+  },
+  {
+    "path": "harvestguard_ai.py",
+    "sha256": "89e8fccb970064c07a59b12e124087b4bc17eb779a14cb12270415ac6e639df5",
+    "bytes": 47192
+  },
+  {
+    "path": "harvestguard_ai_cache.py",
+    "sha256": "460b64a5674cfad8503518e6b16b4ff095275fe11df569db80e447e89231a9ea",
+    "bytes": 7903
+  },
+  {
+    "path": "harvestguard_ai_view.py",
+    "sha256": "11567506ca9b022fc04cf5a52f4899b35ec0a4509d6c36eb6b76bc1740bc0ab6",
+    "bytes": 16095
+  },
+  {
+    "path": "harvestguard_app.py",
+    "sha256": "57bc52f9983c23ae98aaa648a9e4bdd82ace6289f0411fa421855e6377ff9151",
+    "bytes": 127743
+  },
+  {
+    "path": "harvestguard_data.py",
+    "sha256": "9e258d0c6ef3f23161f27c2e0fe61edf6895a3322f5a3d2ccb975dd99e7f373c",
+    "bytes": 11868
+  },
+  {
+    "path": "harvestguard_decisions.py",
+    "sha256": "4bf14462cc1c1b959525bf912671a772e0ad0f45b28cecdfa3f60cc51e1df34c",
+    "bytes": 12959
+  },
+  {
+    "path": "harvestguard_insights.py",
+    "sha256": "d8a977fc01b8ddcc34b43c7955f75455a6563778b6d0ab59d5825ded03d1a37c",
+    "bytes": 17151
+  },
+  {
+    "path": "harvestguard_insights_export.py",
+    "sha256": "1ad810815479bf62cf47fd225924884e26b1f6f4a4a7ab4ef468e89970b2b837",
+    "bytes": 11690
+  },
+  {
+    "path": "harvestguard_map.py",
+    "sha256": "7ccd204c29fca8827ff1a0ac0e45da5f45eef364df96ecc16a17f8917bca4ac3",
+    "bytes": 8979
+  },
+  {
+    "path": "harvestguard_methodology.py",
+    "sha256": "a6de7a5bf904921326531696627e06905b826a0b7cc536cf3011717f87b6cb32",
+    "bytes": 14036
+  },
+  {
+    "path": "HarvestGuard_Model_Development_V3_Colab.ipynb",
+    "sha256": "2a575ff5bbacc2ea3bdf6eda0486291093f04056afc3a13ab268adabaf074f6f",
+    "bytes": 87099
+  },
+  {
+    "path": "harvestguard_model_v3.py",
+    "sha256": "940e1c09804b050a4c42aceb6efbf48bc225d185108cf42473862250a497aa5a",
+    "bytes": 51683
+  },
+  {
+    "path": "HarvestGuard_Quantity_Aggregation_Colab.ipynb",
+    "sha256": "3fad54637cfadeb8c3bda06a5822c5d4647c1614e7cf9141e64b7473d0ae62a7",
+    "bytes": 68864
+  },
+  {
+    "path": "harvestguard_ui.py",
+    "sha256": "255853e262f7d5f7c675034ab57a86437b0d45056a66cc1b815371beeb9ce31f",
+    "bytes": 7888
+  },
+  {
+    "path": "harvestguard_views.py",
+    "sha256": "8538250622d055b707ce5ea14422f953acc891c0fb3babaaae39900e26e2c14e",
+    "bytes": 5515
+  },
+  {
+    "path": "knowledge_base/district_context.json",
+    "sha256": "55afec92988a3e1f362897d739feb9a70b5a3c2e4c455922a063f28b0d158d3d",
+    "bytes": 993
+  },
+  {
+    "path": "knowledge_base/interventions.json",
+    "sha256": "a32cb851741c8a764396c039ecb2940a1f110375b666988dec31100d6633b237",
+    "bytes": 4026
+  },
+  {
+    "path": "METHODOLOGY.md",
+    "sha256": "8a56011831f63df8fea3b5d080a10e91155aec791cfbe9b6ee0915bc3aa60831",
+    "bytes": 8979
+  },
+  {
+    "path": "MODEL_REVIEW.md",
+    "sha256": "c89a4df440b2fc9b0cf179316430141832aa516f7bacb41ffdadff693cd8adb9",
+    "bytes": 22039
+  },
+  {
+    "path": "model_review_tests/requirements.txt",
+    "sha256": "3853f8faf03db1279e9f22f90be8a7ee142ebb6880f21657e4beb81b24ee2ef6",
+    "bytes": 109
+  },
+  {
+    "path": "model_review_tests/test_loss_quantities.py",
+    "sha256": "4000a88831b7cf5f9f2c851955f16750db1d13146327a534fa6526259b9ad278",
+    "bytes": 14162
+  },
+  {
+    "path": "model_review_tests/test_model_v3.py",
+    "sha256": "615ef03e0db59f6efb4d1cb484c357de1d5e193c7ae431c4a63546069169908b",
+    "bytes": 8099
+  },
+  {
+    "path": "model_v2/harvestguard_2025_v2_vulnerability.csv",
+    "sha256": "2b499328d837a1dc764ba25aeecca326a7c323cd6fca51178e6594a65eeef2a1",
+    "bytes": 51115
+  },
+  {
+    "path": "model_v2/model_v2_metadata.json",
+    "sha256": "9dcecd60559e909e224e2df1694786a94a31d0dc9dcf5c133f5cbcff9359d0e9",
+    "bytes": 933
+  },
+  {
+    "path": "model_v3_candidate/baseline_cv_2024.csv",
+    "sha256": "5709d167372d7f943d298aa6f198a236c551db426a8e10e64aab897edd0e0318",
+    "bytes": 1186
+  },
+  {
+    "path": "model_v3_candidate/calibration_2025.csv",
+    "sha256": "d937b039e4c0f3b6b6ec5b3784f2e554f38e50a1a6fafbe90833f1db410c9258",
+    "bytes": 662
+  },
+  {
+    "path": "model_v3_candidate/candidate_comparison_2024.csv",
+    "sha256": "a885d7fa63c00a25da3b943e2e6b0d831e95921ea8b4a7555cea85bab850c318",
+    "bytes": 31662
+  },
+  {
+    "path": "model_v3_candidate/component_diagnostics_2025.csv",
+    "sha256": "5a63a3ea6d0667431ded0d6aefe7f0e3f620834c47d1d1a847d5c94463a0a201",
+    "bytes": 477
+  },
+  {
+    "path": "model_v3_candidate/crop_eligibility_2024.csv",
+    "sha256": "623dd0247a95786738e1aa70cb686067b4f253a96a848ac4c61631264a1242fc",
+    "bytes": 6094
+  },
+  {
+    "path": "model_v3_candidate/external_validation_2025.csv",
+    "sha256": "58168f68f3d6339176dcad6e823cef5a97ebd6be0d2b5f4879620172419bb09c",
+    "bytes": 2187
+  },
+  {
+    "path": "model_v3_candidate/external_validation_by_crop_2025.csv",
+    "sha256": "e0c980ce291f37553051ebf3e87160f0cc5d9cd64a6bd361ea6b32f958521373",
+    "bytes": 3484
+  },
+  {
+    "path": "model_v3_candidate/external_validation_by_season_2025.csv",
+    "sha256": "c552cd0c190fe1e474819e2030c587a7ad6dc2c2c25656b51ff87a200bda538f",
+    "bytes": 821
+  },
+  {
+    "path": "model_v3_candidate/feature_drift_2024_to_2025.csv",
+    "sha256": "fc740775732af564f5a88fdbdb45314665782f9b114567d2d85a6ba22a3cd9e7",
+    "bytes": 737
+  },
+  {
+    "path": "model_v3_candidate/harvestguard_2025_v3_vulnerability.csv",
+    "sha256": "ab9ebb0229b5b129d7f860f804df9210190232cc2209c7ee16c42eebed509250",
+    "bytes": 59416
+  },
+  {
+    "path": "model_v3_candidate/harvestguard_model_v3.py",
+    "sha256": "8cda4c01b8fb7059a1551792dee200a78775c56f58c894379a2d9cea5e2bd8bf",
+    "bytes": 35993
+  },
+  {
+    "path": "model_v3_candidate/locked_choice_before_2025.json",
+    "sha256": "c60019ee1cdfa54047704711ea0f0caaef32e6f1b4e0e494d4ff9798bd8a6c45",
+    "bytes": 2062
+  },
+  {
+    "path": "model_v3_candidate/model_v3_candidate.joblib",
+    "sha256": "6969c3c60a10571fd5e7644173f01568f9f496d64000beacb0fa0b7fee71eb64",
+    "bytes": 813456
+  },
+  {
+    "path": "model_v3_candidate/model_v3_metadata.json",
+    "sha256": "0a7b1879d4234a84531132a83aac1baece5672b7177b6c8d083b19790980480e",
+    "bytes": 1756
+  },
+  {
+    "path": "model_v3_candidate/ranking_cohorts_2025.csv",
+    "sha256": "fb42899f1e72dc1d533ed6ba86589125db43f816646da36346015f18e1653247",
+    "bytes": 2173
+  },
+  {
+    "path": "model_v3_candidate/ranking_detail_baseline.csv",
+    "sha256": "0d4db26ea3b78417d9cced2c3b76cf92722e7f59aefeb17b581aa3e256fd5ba7",
+    "bytes": 2134
+  },
+  {
+    "path": "model_v3_candidate/ranking_detail_candidate.csv",
+    "sha256": "fb42899f1e72dc1d533ed6ba86589125db43f816646da36346015f18e1653247",
+    "bytes": 2173
+  },
+  {
+    "path": "model_v3_candidate/readiness_checks.csv",
+    "sha256": "24a95b1bebef04698ce05f09655c5f67c50173a3b50da711eb36c4c113e29b1f",
+    "bytes": 133
+  },
+  {
+    "path": "model_v3_candidate/requirements_model_v3.txt",
+    "sha256": "c96f08f6c800e9823231bb97312dc6587a383409fdb3c448b93c586ab4783de0",
+    "bytes": 104
+  },
+  {
+    "path": "model_v3_candidate/target_by_year_season.csv",
+    "sha256": "e34731531d2ec88340d0fa57f0be0dad767e826b594dc2548788b5050d9ce7be",
+    "bytes": 250
+  },
+  {
+    "path": "model_v3_candidate/temporal_validation.png",
+    "sha256": "0fb374942c9a574372f9a26b15e58190ae1e37bc910f0c5878acc0d9a9f93ce0",
+    "bytes": 86961
+  },
+  {
+    "path": "model_v3_candidate/tuning_trials_2024.csv",
+    "sha256": "3cb60065d17e0198780db97690f84587a3d6386e9c9c21b444a403df6555b337",
+    "bytes": 15440
+  },
+  {
+    "path": "model_v3_insights/district_evidence.json",
+    "sha256": "b5ce9036eecca3ec4f45ee85a1c26bf94718666e339303e41b6bd0c32d0ce613",
+    "bytes": 2175813
+  },
+  {
+    "path": "model_v3_insights/feature_importance_hurdle.csv",
+    "sha256": "256a2d4e276e3f3222dba779b72d4b7c0e953b1200901e7033d6a33d49d86602",
+    "bytes": 989
+  },
+  {
+    "path": "model_v3_insights/RUN_RESULTS.md",
+    "sha256": "6cb7030f5c8a0c129fd5ddfed5d73623c8d176a54bffcb2589ff836795d85eac",
+    "bytes": 2156
+  },
+  {
+    "path": "model_v3_quantity_results/harvestguard_2025_v3_quantity_priorities.csv",
+    "sha256": "71083d57a191c2bd502680d12b09bd61f0318ebd5b316647a51f4e2834b01a06",
+    "bytes": 159035
+  },
+  {
+    "path": "model_v3_quantity_results/quantity_aggregation_metadata.json",
+    "sha256": "d36939f04b125093b8f4b311fc3cf03389743f7175cb82f58066ca352bae6d78",
+    "bytes": 1689
+  },
+  {
+    "path": "model_v3_quantity_results/RUN_RESULTS.md",
+    "sha256": "df65dc5fbb116a543cb02d1d4dca5c4465df195a964cfd252216a90b843b998c",
+    "bytes": 1885
+  },
+  {
+    "path": "README.md",
+    "sha256": "0a54f2cb7de752785b7353eb56246b6a5e6bbbad1998fad3baebfc0a252e9b0d",
+    "bytes": 5678
+  },
+  {
+    "path": "render.yaml",
+    "sha256": "d966ce54253f875967623e8d3e21823609a010554528f0c1d1c649efe0e62aa3",
+    "bytes": 283
+  },
+  {
+    "path": "requirements-dev.txt",
+    "sha256": "05c0a25e87b1c66eb38fc92ca4fc7ffa23ca2227d272195a02ad755cd34131c4",
+    "bytes": 265
+  },
+  {
+    "path": "requirements-web.txt",
+    "sha256": "f81ef0cf420a562e48b63f8cdb58c45f01b060016c7933c6fffdd965d682126f",
+    "bytes": 78
+  },
+  {
+    "path": "requirements.txt",
+    "sha256": "3fd52f60c8754dae65cd744400f02746b73b7306ae2082e919937d18ec9f8a56",
+    "bytes": 155
+  },
+  {
+    "path": "scripts/build_public_release.py",
+    "sha256": "602e69347be9a76f4eb53c6667a9580f202ea738a4664c27176f3f1cdb05da52",
+    "bytes": 4497
+  },
+  {
+    "path": "source_preprocessing/build_postharvest_model_ready_corrected.py",
+    "sha256": "70ac31f9d4d12d987a82d9ad46707ef451e9fbad226eac574fd555351f7466e6",
+    "bytes": 56280
+  },
+  {
+    "path": "source_preprocessing/POSTHARVEST_CORRECTED_PREPROCESSING_README.txt",
+    "sha256": "6e4e258ce2cbd9648ee4810a30fac77b13c05884b811db2161c6b28b92f00789",
+    "bytes": 1837
+  },
+  {
+    "path": "source_preprocessing/postharvest_regression_model_dictionary.csv",
+    "sha256": "593dd8280bd167c4ac86bb9997011672087e4def687c8ddd08d76593363d2152",
+    "bytes": 1861
+  },
+  {
+    "path": "source_preprocessing/postharvest_regression_model_manifest.json",
+    "sha256": "e4ab5af6ce59920d72ccf9327cc57c89b6d9b0f3f0545807ec115a66723602c1",
+    "bytes": 1174
+  },
+  {
+    "path": "source_preprocessing/postharvest_requirements.txt",
+    "sha256": "99ccb4dc99eb381bc2a280b76a929878b1b2dab4b5e10a2e5bb23824c4386479",
+    "bytes": 66
+  },
+  {
+    "path": "source_preprocessing/quality_metrics.json",
+    "sha256": "f9c8e90e940346d9dd5141e2a230dcc86c6fdb2aebec8f2cccdeac9acdeb5f10",
+    "bytes": 1643
+  },
+  {
+    "path": "source_preprocessing/unified_postharvest_quality_report.txt",
+    "sha256": "0b467b1aab30cd7aae5d0b82ae5deefa0da87c916b5642793edfbd0f9947fe50",
+    "bytes": 3697
+  },
+  {
+    "path": "SUBMISSION.md",
+    "sha256": "e2a2473a97a0e99b112489300e4b5a49b8d46a44c512ca65daf51c6665746db0",
+    "bytes": 3853
+  },
+  {
+    "path": "tests/conftest.py",
+    "sha256": "dafc018c9e5d6855895e3cfb5197bab8f4f3eedb6306ce355570a4669689a8f8",
+    "bytes": 1046
+  },
+  {
+    "path": "tests/test_ai.py",
+    "sha256": "3dd7a6272e338fdf87942d91ba8d31d7993a93c2812f616f7020642bb476172b",
+    "bytes": 41209
+  },
+  {
+    "path": "tests/test_app.py",
+    "sha256": "75025b607a908b1e559603f9e27e254ce2cedeea7604953a129fc2d8e25ca37c",
+    "bytes": 3518
+  },
+  {
+    "path": "tests/test_dashboard_quantities.py",
+    "sha256": "59d23d7abe59caed302ee0bb9b410c7e6ae6d63fbedca9f910625d3f4edc3c5a",
+    "bytes": 4476
+  },
+  {
+    "path": "tests/test_decisions.py",
+    "sha256": "4b18d6b38300c642c5cc914229891db82591a493403911b53f0135b2cba758b3",
+    "bytes": 4127
+  },
+  {
+    "path": "tests/test_insight_planning.py",
+    "sha256": "ef215a4aa2266c3ec9c8c5b2745d695ce57a6c6fa4d1b17feb2c73a9db983bac",
+    "bytes": 9688
+  },
+  {
+    "path": "tests/test_methodology.py",
+    "sha256": "e39d86f63bb7a2fcf5d5f0b2105e24b8d82bad65e496a6916adbb96055df9f58",
+    "bytes": 1977
+  },
+  {
+    "path": "tests/test_quantity_priorities.py",
+    "sha256": "d357d449ad9ac13cab690db46ad52d8a5a8fa7c86b8c2ec20d1bd46f3094ecb3",
+    "bytes": 6546
+  },
+  {
+    "path": "tests/test_release.py",
+    "sha256": "4b723a63012d065c6713eba73876139bda8051e42bd6ec0677ac455ffa49f6d9",
+    "bytes": 1096
+  },
+  {
+    "path": "tests/test_v3_integration.py",
+    "sha256": "44b0a10f0cb21c2c24564bb960658b2944e8855057f21c9f2ed9b2fc7b89ec49",
+    "bytes": 4759
+  }
+]

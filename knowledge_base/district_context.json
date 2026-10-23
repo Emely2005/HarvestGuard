@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "id": "nisr_2025_a_nyagatare_maize",
+      "district": "Nyagatare",
+      "crop": "Maize",
+      "season": "A",
+      "year": 2025,
+      "display_values": {"production_tonnes": "85,407"},
+      "text": "NISR's 2025 Season A report identifies Nyagatare among the Eastern Province districts with the highest maize production. Table 14 reports 85,407 metric tonnes of maize for Nyagatare.",
+      "source_title": "NISR Seasonal Agricultural Survey 2025 Season A, page 23 and Table 14 (page 37)",
+      "source_url": "https://statistics.gov.rw/sites/default/files/documents/2025-05/SAS%202025A_Final%20%20report.pdf#page=37",
+      "scope": "Published district production context for Season A 2025. It is not a local model contribution and provides no evidence about storage capacity or methods. Do not multiply it by the app's unweighted profile-average loss rate to claim district tonnes lost.",
+      "reviewed_on": "2026-10-21"
+    }
+  ]
+}

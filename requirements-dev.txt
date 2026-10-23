@@ -1,0 +1,11 @@
+-r requirements.txt
+pytest
+# Additional libraries for model-review tests and analysis tools.
+# The saved-model reproduction environment remains separately pinned in
+# model_v3_candidate/requirements_model_v3.txt.
+scikit-learn
+xgboost
+joblib
+scipy
+matplotlib
+optuna

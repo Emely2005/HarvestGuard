@@ -1,0 +1,4 @@
+check,passed
+A+B district MAE beats exact history,True
+A+B NDCG beats exact history,False
+A+B top5 overlap beats exact history,False
