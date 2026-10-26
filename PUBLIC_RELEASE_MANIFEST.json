@@ -346,8 +346,8 @@
   },
   {
     "path": "requirements.txt",
-    "sha256": "49dffe19785d01e7019c60d2bfb9fc3035178a887d4ebbffa2b9fd23f3c927ca",
-    "bytes": 252
+    "sha256": "2066d8afaeabd973f612dceeb5a25c276435cc13d47e27743f73c66e3ad944e2",
+    "bytes": 349
   },
   {
     "path": "scripts/audit_project.py",

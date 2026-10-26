@@ -1,5 +1,6 @@
 # Streamlit Community Cloud reads this file automatically.
 # Share the tested runtime with Docker and local dashboard installs.
+# Global chat uses Streamlit 1.58 stateful popovers; refresh imported UI modules on deployment.
 -r requirements-web.txt
 # Mirror the server pin here so Community Cloud detects a dependency rebuild.
 starlette==1.3.1
