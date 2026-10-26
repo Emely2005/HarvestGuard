@@ -17,7 +17,7 @@ The model must support Groq strict structured outputs. The tested default uses J
 
 ## Ask HarvestGuard
 
-Open the **Ask HarvestGuard** page. Choose a district, crop and season, then type a question or choose an example. An officer can ask, for example, "Why does Nyagatare rank first for Sorghum?" The assistant checks the actual saved rank rather than accepting the question's premise.
+Click the floating chat icon at the bottom right of any page, or open the **Ask HarvestGuard** page for a larger view. Both share the same conversation for the selected filters. Choose a district, crop and season, then type a question or choose an example. An officer can ask, for example, "Why does Nyagatare rank first for Sorghum?" The assistant checks the actual saved rank rather than accepting the question's premise.
 
 Explicit district, crop and season names override the default context for that question. Follow-ups keep the last single selection within that chat. Changing sidebar filters starts a separate conversation; **Clear chat** removes that thread. Histories are bounded to ten exchanges per thread and eight filter combinations per browser session. Conversations are not stored in the shared explanation cache or logged by the app.
 

@@ -19,7 +19,7 @@ from harvestguard_decisions import build_brief, load_knowledge_base
 from harvestguard_map import build_map
 from harvestguard_ui import apply_design, hero, card, ranking_cards
 from harvestguard_ai_view import render_ai_advisor
-from harvestguard_chat_view import render_project_assistant
+from harvestguard_chat_view import render_floating_assistant, render_project_assistant
 from harvestguard_data import MODEL_FOLDER, dashboard_signature, load_dashboard_data, rank_districts
 
 st.set_page_config(
@@ -162,3 +162,6 @@ with st.expander("Metadata and Methodology"):
     render_model_evidence(metadata, readiness, MODEL_DIR)
 
 st.markdown('<div class="hg-footer">HarvestGuard Rwanda · NISR seasonal agricultural data · 2025 analysis</div>', unsafe_allow_html=True)
+
+render_floating_assistant(risk, metadata, APP_DIR, MODEL_DIR,
+                          {"district": selected_district, "crop": crop, "season": season})

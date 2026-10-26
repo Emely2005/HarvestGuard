@@ -12,7 +12,7 @@ from harvestguard_chat import (
 from harvestguard_groq import DEFAULT_MODEL
 
 
-def _show_answer(entry, index):
+def _show_answer(entry, index, widget_prefix=""):
     if "error" in entry:
         st.info(entry["error"])
         return
@@ -28,12 +28,13 @@ def _show_answer(entry, index):
     markdown += "\n\n".join(render_paragraph(paragraph, evidence) for paragraph in answer["paragraphs"])
     markdown += "\n\n## Sources\n\n" + "\n".join(
         f"- [{source['source_title']}]({source['source_url']})" for source in evidence_sources(answer, evidence))
-    st.download_button("Download answer", markdown, file_name="harvestguard_answer.md", mime="text/markdown", key=f"chat_download_{index}")
+    st.download_button("Download answer", markdown, file_name="harvestguard_answer.md", mime="text/markdown", key=f"{widget_prefix}chat_download_{index}")
 
 
-def render_project_assistant(data, metadata, app_dir, model_dir, selection):
+def render_project_assistant(data, metadata, app_dir, model_dir, selection, *, widget_prefix="", compact=False):
     st.caption(f"Current context: {selection['district']} · {selection['crop']} · Season {selection['season']} · 2025")
-    st.write("Ask about a ranking, a model finding, the data or the methods. You can name another district, crop or season in your question.")
+    if not compact:
+        st.write("Ask about a ranking, a model finding, the data or the methods. You can name another district, crop or season in your question.")
     api_key = _setting("GROQ_API_KEY").strip() if _setting("HARVESTGUARD_AI_ENABLED", "1").strip() != "0" else ""
     model = _setting("GROQ_MODEL", DEFAULT_MODEL).strip()
     identity = thread_id(selection, model, api_key)
@@ -42,32 +43,34 @@ def render_project_assistant(data, metadata, app_dir, model_dir, selection):
     while len(threads) > 8:
         old = next(key for key in threads if key != identity)
         del threads[old]
-    left, right = st.columns([4, 1])
+    left, right = st.columns([3, 2] if compact else [4, 1])
     with right:
-        if st.button("Clear chat", key="clear_project_chat", disabled=not thread["messages"]):
+        if st.button("Clear chat", key=f"{widget_prefix}clear_project_chat", disabled=not thread["messages"]):
             threads[identity] = {"messages": [], "selection": dict(selection), "retry_at": 0}
             st.rerun()
     pending = None
-    if not thread["messages"]:
-        examples = [f"Why is {selection['district']} ranked here for {selection['crop']}?",
-                    "What is the difference between loss percentage and kilograms lost?",
-                    "How were the datasets cleaned and the model evaluated?"]
-        for index, question in enumerate(examples):
-            if st.button(question, key=f"chat_example_{index}", width="stretch"):
-                pending = question
-    for index, entry in enumerate(thread["messages"]):
-        with st.chat_message(entry["role"]):
-            if entry["role"] == "user":
-                st.write(entry["text"])
-            else:
-                _show_answer(entry, index)
-    if thread["messages"] and "answer" in thread["messages"][-1]:
-        for index, question in enumerate(thread["messages"][-1]["answer"]["follow_up_questions"]):
-            if st.button(question, key=f"chat_followup_{len(thread['messages'])}_{index}"):
-                pending = question
+    with st.container(height=300 if compact else "content", border=False,
+                      key=f"{widget_prefix}chat_messages", autoscroll=compact):
+        if not thread["messages"]:
+            examples = [f"Why is {selection['district']} ranked here for {selection['crop']}?",
+                        "What is the difference between loss percentage and kilograms lost?",
+                        "How were the datasets cleaned and the model evaluated?"]
+            for index, question in enumerate(examples):
+                if st.button(question, key=f"{widget_prefix}chat_example_{index}", width="stretch"):
+                    pending = question
+        for index, entry in enumerate(thread["messages"]):
+            with st.chat_message(entry["role"]):
+                if entry["role"] == "user":
+                    st.write(entry["text"])
+                else:
+                    _show_answer(entry, index, widget_prefix)
+        if thread["messages"] and "answer" in thread["messages"][-1]:
+            for index, question in enumerate(thread["messages"][-1]["answer"]["follow_up_questions"]):
+                if st.button(question, key=f"{widget_prefix}chat_followup_{len(thread['messages'])}_{index}"):
+                    pending = question
     if not api_key:
         st.info("Live answers are temporarily unavailable. You can still explore the verified model findings on Insights.")
-    question = st.chat_input("Ask HarvestGuard about this project…", key="project_question", max_chars=1000,
+    question = st.chat_input("Ask HarvestGuard about this project…", key=f"{widget_prefix}project_question", max_chars=1000,
                              disabled=not api_key)
     pending = question or pending
     if not pending:
@@ -110,3 +113,16 @@ def render_project_assistant(data, metadata, app_dir, model_dir, selection):
     # Bound each browser session; questions are not written to shared disk caches.
     thread["messages"] = thread["messages"][-20:]
     st.rerun()
+
+
+def render_floating_assistant(data, metadata, app_dir, model_dir, selection):
+    """Keep project chat within reach without leaving the current dashboard page."""
+    with st.container(key="hg_assistant_launcher"):
+        panel = st.popover("Ask HarvestGuard", icon=":material/chat:",
+                           help="Ask HarvestGuard about the current selection",
+                           key="hg_assistant_open", on_change="rerun")
+        if panel.open:
+            with panel, st.container(key="hg_assistant_panel"):
+                st.markdown("### Ask HarvestGuard")
+                render_project_assistant(data, metadata, app_dir, model_dir, selection,
+                                         widget_prefix="floating_", compact=True)

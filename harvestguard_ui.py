@@ -74,6 +74,32 @@ h3 { font-size:1.3rem !important; }
 .hg-legend { display:flex; flex-wrap:wrap; gap:1rem; font-size:.72rem; color:#566650; margin:.3rem 0; }
 .hg-dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:.3rem; }
 .hg-footer { font-size:.72rem; color:#6b775d; margin-top:1.3rem; border-top:1px solid #dce1d2; padding-top:.8rem; }
+.st-key-hg_assistant_launcher {
+    position:fixed; right:1.5rem; bottom:1.5rem; width:auto !important; z-index:1000;
+}
+.st-key-hg_assistant_launcher [data-testid="stPopoverButton"] {
+    width:60px; height:60px; padding:0; border-radius:50%; border:1px solid #50734a;
+    background:#193f2d; color:#fffdf1; box-shadow:0 5px 22px #173f2b40;
+}
+.st-key-hg_assistant_launcher [data-testid="stPopoverButton"]:hover {
+    background:#2b5738; color:#fffdf1; border-color:#81985b;
+}
+.st-key-hg_assistant_launcher [data-testid="stPopoverButton"]:focus-visible {
+    outline:3px solid #c98642; outline-offset:4px;
+}
+.st-key-hg_assistant_launcher [data-testid="stPopoverButton"] [data-testid="stMarkdownContainer"] {
+    position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%);
+}
+.st-key-hg_assistant_launcher [data-testid="stPopoverButton"] div[aria-hidden="true"] { display:none; }
+[data-testid="stPopoverBody"]:has(.st-key-hg_assistant_panel) {
+    width:430px; max-width:calc(100vw - 2rem); max-height:calc(100dvh - 110px);
+    overflow-y:auto; border:1px solid #d7decc; border-radius:18px; background:#fffdf7;
+    box-shadow:0 10px 45px #173f2b26;
+}
+.st-key-floating_chat_messages {
+    height:clamp(100px, calc(100dvh - 370px), 320px) !important;
+}
+[data-testid="stBottomBlockContainer"] { padding-right:6.5rem; }
 @media(max-width:800px) {
     .hg-priorities { grid-template-columns:1fr; }
     .block-container { padding-top:3.7rem; }
@@ -81,6 +107,7 @@ h3 { font-size:1.3rem !important; }
     .hg-hero h1 { font-size:1.8rem; }
     .hg-card { padding:1rem; }
     [data-testid="stMetric"] { min-height:88px; padding:.65rem 1rem; }
+    .st-key-hg_assistant_launcher { right:1rem; bottom:1rem; }
 }
 </style>
 """, unsafe_allow_html=True)

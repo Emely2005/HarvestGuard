@@ -10,6 +10,7 @@ from streamlit.testing.v1 import AppTest
 
 import harvestguard_chat
 import harvestguard_chat_view
+import harvestguard_ai_view
 import harvestguard_groq
 from harvestguard_ai import AIError, AIResponseError
 from harvestguard_chat import generate_answer, render_paragraph, retrieve_evidence, validate_answer
@@ -291,4 +292,49 @@ def test_chat_ui_answers_followups_and_resets_on_filter_changes(monkeypatch):
     app.chat_input(key="project_question").set_value("Explain my ranking").run(timeout=40)
     assert calls[-1][1][0]["district"] == "Kirehe"
     app.button(key="clear_project_chat").click().run(timeout=40)
+    assert not app.chat_message
+
+
+def test_floating_chat_shares_answers_across_pages_and_follows_selection(monkeypatch):
+    calls = []
+    # AppTest does not yet send native popover widget state; Chrome checks opening/closing.
+    opened = [True]
+    real_popover = harvestguard_chat_view.st.popover
+    def popover(*args, **kwargs):
+        panel = real_popover(*args, **kwargs)
+        panel.open = opened[0]
+        return panel
+    monkeypatch.setattr(harvestguard_chat_view.st, "popover", popover)
+    monkeypatch.setattr(harvestguard_chat_view, "_setting", lambda name, default="": "private-test-key" if name == "GROQ_API_KEY" else default)
+    def answer(evidence, key, **kwargs):
+        calls.append(evidence["selections"])
+        return valid_answer(evidence)
+    monkeypatch.setattr(harvestguard_chat_view, "generate_answer", answer)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "0" if name == "HARVESTGUARD_AI_ENABLED" else default)
+    app = AppTest.from_file(str(ROOT / "harvestguard_app.py")).run(timeout=40)
+    assert not app.exception
+    app.chat_input(key="floating_project_question").set_value("Explain my ranking").run(timeout=40)
+    app.run(timeout=40)
+    assert not app.exception
+    assert calls[-1][0]["district"] == "Nyagatare"
+    assert len(app.chat_message) == 2
+    app.radio(key="page").set_value("Insights").run(timeout=40)
+    assert not app.exception
+    assert len(app.chat_message) == 2
+    app.radio(key="page").set_value("Ask HarvestGuard").run(timeout=40)
+    assert not app.exception
+    assert len(app.chat_message) == 4  # The same answer in both views, with unique widget keys.
+    opened[0] = False
+    app.run(timeout=40)
+    assert len(app.chat_message) == 2
+    app.selectbox(key="brief_district").select("Kirehe").run(timeout=40)
+    opened[0] = True
+    app.run(timeout=40)
+    assert not app.chat_message
+    app.chat_input(key="floating_project_question").set_value("Explain my ranking").run(timeout=40)
+    app.run(timeout=40)
+    assert not app.exception
+    assert calls[-1][0]["district"] == "Kirehe"
+    app.button(key="floating_clear_project_chat").click().run(timeout=40)
+    assert not app.exception
     assert not app.chat_message

@@ -24,7 +24,7 @@ For AI explanations, set `GROQ_API_KEY` privately in the environment or ignored 
 
 ## Ask HarvestGuard
 
-Open **Ask HarvestGuard** in the sidebar, type a question, and press Enter. Ask why a district ranks where it does, compare named districts, or ask how the data and model were prepared. The assistant retrieves matching aggregate results and methodology, checks numerical tokens and evidence references, and provides expandable sources, follow-up questions and an answer download. The current filters supply the default context; naming a different district, crop or season changes the question context. Chat history stays in the browser session and can be cleared.
+Click the floating chat icon at the bottom right of any page, type a question, and press Enter. The **Ask HarvestGuard** sidebar page also offers a larger view of the same conversation. Ask why a district ranks where it does, compare named districts, or ask how the data and model were prepared. The assistant retrieves matching aggregate results and methodology, checks numerical tokens and evidence references, and provides expandable sources, follow-up questions and an answer download. The current filters supply the default context; naming a different district, crop or season changes the question context. Chat history stays in the browser session and can be cleared.
 
 Questions and relevant aggregate evidence are sent to Groq. Farmer-level inputs and credentials are never retrieved for answers. Local model comparisons are not causal explanations or measured intervention benefits.
 

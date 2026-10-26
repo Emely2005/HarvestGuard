@@ -21,8 +21,8 @@
   },
   {
     "path": "AI_SETUP.md",
-    "sha256": "5ce5e721c0d6eef43e50579885c849cdac2ba710e06533f9fe02aae4e56467b2",
-    "bytes": 4578
+    "sha256": "e7d3d48f67293e0dca92abd45181ddf05ba00f25e46690d98546df5ba308d8e5",
+    "bytes": 4720
   },
   {
     "path": "dashboard.py",
@@ -66,8 +66,8 @@
   },
   {
     "path": "harvestguard_app.py",
-    "sha256": "b4365cb2a8baf5034321ccc0c1ca36a62c33aa6cb082e265ca6a65079083427f",
-    "bytes": 128336
+    "sha256": "83d014df69c525dcc4ea3e14a816380d0c4aa68a066c9dd5a906528f60d65aa5",
+    "bytes": 128520
   },
   {
     "path": "harvestguard_chat.py",
@@ -76,8 +76,8 @@
   },
   {
     "path": "harvestguard_chat_view.py",
-    "sha256": "bfa5f28e8807ae8e85350d618c84dbe6c50529046dea4f290c1f96d4ae6fc689",
-    "bytes": 6178
+    "sha256": "e4cccc744cbb7257651cfa9dfd1fc958c5b2d120238fd10074a029e275d3bc61",
+    "bytes": 7341
   },
   {
     "path": "harvestguard_data.py",
@@ -131,8 +131,8 @@
   },
   {
     "path": "harvestguard_ui.py",
-    "sha256": "255853e262f7d5f7c675034ab57a86437b0d45056a66cc1b815371beeb9ce31f",
-    "bytes": 7888
+    "sha256": "c187ebfd4c2b05eef3e9a2f1dbd79f890938b9ff8486cd0c78fb86a9ec57a383",
+    "bytes": 9285
   },
   {
     "path": "harvestguard_views.py",
@@ -326,8 +326,8 @@
   },
   {
     "path": "README.md",
-    "sha256": "9166036444a04c23c3432cad6750cd1340292861cfacb624344ef3838a94aff4",
-    "bytes": 6517
+    "sha256": "5fd3fa9977092319e90085fbf59160585731756eda055d1c5f6e347b195643c9",
+    "bytes": 6627
   },
   {
     "path": "render.yaml",
@@ -451,8 +451,8 @@
   },
   {
     "path": "tests/test_project_chat.py",
-    "sha256": "e6d084785753570664f67017087ccf79a767848688c9a50283241faeac393abc",
-    "bytes": 15507
+    "sha256": "ee824d8dfae05af35772b772529d4e9af108bb001a7dc44266730c9bd4357129",
+    "bytes": 17783
   },
   {
     "path": "tests/test_quantity_priorities.py",
