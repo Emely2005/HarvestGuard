@@ -71,13 +71,13 @@
   },
   {
     "path": "harvestguard_chat.py",
-    "sha256": "c3d307838fa5eaac7a8943364f770b2d9a6d343eec32cfa3c412110ca7c4abf9",
-    "bytes": 30620
+    "sha256": "27672e503e73dbcf7294141d606aa7d98a0a4400da61f7c65300aec0625b935b",
+    "bytes": 31159
   },
   {
     "path": "harvestguard_chat_view.py",
-    "sha256": "d907d41f0ca316cbc5b91c7de691a52031339309308323b06c355191c3ea02dd",
-    "bytes": 6033
+    "sha256": "bfa5f28e8807ae8e85350d618c84dbe6c50529046dea4f290c1f96d4ae6fc689",
+    "bytes": 6178
   },
   {
     "path": "harvestguard_data.py",
@@ -451,8 +451,8 @@
   },
   {
     "path": "tests/test_project_chat.py",
-    "sha256": "b45a97e24806b662848041f36017b12cfc0d170391c06a6d386b83a2c275b05b",
-    "bytes": 13459
+    "sha256": "d05a0efc680adb2fec32b04189813632df1caf4d70e3a24a3087ed674617380d",
+    "bytes": 14770
   },
   {
     "path": "tests/test_quantity_priorities.py",

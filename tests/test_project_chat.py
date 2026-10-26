@@ -201,6 +201,27 @@ def test_credentials_in_a_question_are_rejected_before_retrieval(data):
         retrieve_evidence("My key is " + "gsk_" + "x" * 48, SELECTION, rows, metadata, ROOT, ROOT / "model_v3_candidate")
 
 
+def test_credentials_in_old_history_cannot_reach_the_provider(evidence, monkeypatch):
+    secret = "gsk_" + "x" * 48
+    def request(*args, **kwargs):
+        assert secret not in json.dumps(kwargs["payload"])
+        assert "[credential removed]" in kwargs["payload"]["recent_conversation"][0]["text"]
+        return valid_answer(evidence)
+    monkeypatch.setattr(harvestguard_chat, "call_json", request)
+    assert generate_answer(evidence, "test-secret", history=[{"role": "user", "text": "My key: " + secret}])
+
+
+def test_ui_rejects_credentials_before_storing_or_sending_a_question(monkeypatch):
+    monkeypatch.setattr(harvestguard_chat_view, "_setting", lambda name, default="": "private-test-key" if name == "GROQ_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_chat_view, "generate_answer", lambda *args, **kwargs: pytest.fail("A credential question reached the provider"))
+    app = AppTest.from_file(str(ROOT / "harvestguard_app.py")).run(timeout=40)
+    app.radio(key="page").set_value("Ask HarvestGuard").run(timeout=40)
+    app.chat_input(key="project_question").set_value("My key: " + "gsk_" + "x" * 48).run(timeout=40)
+    assert not app.exception
+    assert not app.chat_message
+    assert any("remove the credential" in message.value for message in app.info)
+
+
 def test_groq_transport_keeps_key_in_header_and_uses_strict_schema(monkeypatch):
     def request(req, timeout):
         assert req.full_url == harvestguard_groq.API_URL

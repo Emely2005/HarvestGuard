@@ -7,7 +7,7 @@ import streamlit as st
 from harvestguard_ai import AIError
 from harvestguard_ai_view import _setting
 from harvestguard_chat import (
-    evidence_sources, generate_answer, render_paragraph, retrieve_evidence, thread_id,
+    evidence_sources, generate_answer, render_paragraph, retrieve_evidence, thread_id, validate_question,
 )
 from harvestguard_groq import DEFAULT_MODEL
 
@@ -74,6 +74,11 @@ def render_project_assistant(data, metadata, app_dir, model_dir, selection):
         return
     if not api_key:
         st.info("Live answers are temporarily unavailable. Please try again later or open Insights for the saved findings.")
+        return
+    try:
+        pending = validate_question(pending)
+    except AIError as error:
+        st.info(str(error))
         return
     if time.time() < thread["retry_at"]:
         st.info("The AI service is cooling down. Please try your question again shortly.")
