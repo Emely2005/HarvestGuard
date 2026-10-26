@@ -24,7 +24,8 @@ from jsonschema import ValidationError, validate
 
 DEFAULT_MODEL = "gemini-3.1-flash-lite"
 PROMPT_VERSION = "harvestguard-intervention-planner-6-groq"
-NUMBER = re.compile(r"(?<![\w.])[-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?![\w.])")
+# A sentence-ending period is punctuation; a following decimal digit is not.
+NUMBER = re.compile(r"(?<![\w.])[-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?!\w|\.\d)")
 
 
 class AIError(Exception):

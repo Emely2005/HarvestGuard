@@ -157,6 +157,18 @@ def test_reversed_rate_comparison_and_thin_space_values(evidence):
     assert validate_answer(harvestguard_chat.ground_answer_numbers(original, evidence), evidence)
 
 
+def test_exact_values_before_full_stops_are_grounded_without_accepting_unknown_values(evidence):
+    answer = valid_answer(evidence)
+    answer["paragraphs"][0]["text"] = "The year is 2025. The district ranks 1 of 19."
+    checked = harvestguard_chat.ground_answer_numbers(answer, evidence)
+    assert validate_answer(checked, evidence)
+    assert render_paragraph(checked["paragraphs"][0], evidence) == "The year is 2025. The district ranks 1 of 19."
+    for text in ("The loss was 999999.", "The source identifier is 2025.06.01."):
+        answer["paragraphs"][0]["text"] = text
+        with pytest.raises(AIResponseError):
+            validate_answer(harvestguard_chat.ground_answer_numbers(answer, evidence), evidence)
+
+
 def test_sample_production_cannot_be_relabelled_as_loss(evidence):
     answer = valid_answer(evidence)
     answer["paragraphs"][0]["text"] = "Its estimated loss was 198,909 kg."

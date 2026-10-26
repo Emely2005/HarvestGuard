@@ -19,7 +19,7 @@ from harvestguard_insights import load_insight_evidence, plan_interventions
 
 REPOSITORY = "https://github.com/Emely2005/HarvestGuard/blob/main/"
 DOCUMENTS = ("METHODOLOGY.md", "MODEL_REVIEW.md", "PROJECT_AUDIT.md")
-CHAT_VERSION = "harvestguard-questions-2"
+CHAT_VERSION = "harvestguard-questions-3"
 MAX_QUESTION = 1000
 CREDENTIAL = re.compile(r"gsk_[A-Za-z0-9]{20,}|AIza[A-Za-z0-9_-]{35}|sk-[A-Za-z0-9_-]{24,}|ghp_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,}")
 SYSTEM = """You are Ask HarvestGuard, the read-only assistant for HarvestGuard Rwanda.
