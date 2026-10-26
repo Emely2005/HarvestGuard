@@ -2,6 +2,8 @@
 
 The application runs directly from aggregate exports. It does not load the training model into memory or require raw farmer CSVs. Its model file is retained for provenance checks. The root `requirements.txt` includes the tested dashboard dependencies from `requirements-web.txt`; model-development dependencies remain separate.
 
+Keep the tested Streamlit and Starlette pins together. The deployed runtime must use `streamlit==1.58.0` with `starlette==1.3.1`; an unrestricted Starlette upgrade produced compression-response errors and incomplete widget rendering on Community Cloud. Change these pins only after checking a fresh browser session, the question interface and downloads.
+
 ## 1. Publish the reviewed GitHub files
 
 Run `python scripts/build_public_release.py`. The builder prints the release directory and ZIP path and records them in `.runtime/public_release/latest.json`. Publish the **contents of that release directory** to the root of the new public `HarvestGuard` repository on branch `main`. Do not upload the ZIP itself as the application or upload the entire working directory.

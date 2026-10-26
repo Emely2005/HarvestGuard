@@ -41,8 +41,8 @@
   },
   {
     "path": "DEPLOYMENT.md",
-    "sha256": "ee8e2f44ca5ab9e13a214806b9a8aff28bcf0678359a8ddba3928cd41fe57b80",
-    "bytes": 5705
+    "sha256": "eab1bd09725df9452c28afd97911d59d17bce056a5578f9c90bc15bd2fca796c",
+    "bytes": 6062
   },
   {
     "path": "Dockerfile",
@@ -341,8 +341,8 @@
   },
   {
     "path": "requirements-web.txt",
-    "sha256": "f81ef0cf420a562e48b63f8cdb58c45f01b060016c7933c6fffdd965d682126f",
-    "bytes": 78
+    "sha256": "d671c9ab47a64fdb672a387a615bf24bbbafe6cec675e40f679133c8494ee0ab",
+    "bytes": 173
   },
   {
     "path": "requirements.txt",
