@@ -13,3 +13,4 @@ venv/
 **/profile_quantity_predictions_*.csv
 postharvest_regression_model_ready*.csv
 *.zip
+*.log

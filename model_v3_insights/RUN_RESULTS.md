@@ -1,5 +1,7 @@
 # Insights evidence run — 22 October 2026
 
+This document records the original evidence-export and verification run. The current application uses Groq for its automatic explanations and interactive **Ask HarvestGuard** questions; see `AI_SETUP.md`. The saved statistical model and aggregate evidence from this run are unchanged.
+
 Generated with `harvestguard_insights_export.py` using the supplied production-bearing CSV and existing V3 candidate. No training or tuning was performed.
 
 - Profiles: **50,475** eligible 2025 records.

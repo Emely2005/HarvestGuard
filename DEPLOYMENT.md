@@ -31,13 +31,13 @@ The root requirements file is detected automatically. No custom start command, m
 In **Advanced settings > Secrets**, paste the contents of your private local `.streamlit/secrets.toml`. Its format is:
 
 ```toml
-GEMINI_API_KEY = "YOUR_GEMINI_API_KEY"
-GEMINI_MODEL = "gemini-3.1-flash-lite"
+GROQ_API_KEY = "YOUR_GROQ_API_KEY"
+GROQ_MODEL = "openai/gpt-oss-120b"
 ```
 
 Replace the placeholder only inside Streamlit's private Secrets field. Never commit the actual key or paste it into an issue or chat. Save the settings and click **Deploy**. You can later update these values in the app's settings. See [Streamlit secrets management](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management).
 
-Without a key, the map, factual findings, evidence-backed actions and downloads remain usable. New Gemini explanations require valid project access and available quota. Online generation is enabled by default; `HARVESTGUARD_AI_ENABLED=0` in the server environment disables it for isolated local review. A new cloud instance starts without the local AI cache and uses the same bounded request handling as the local application.
+Without a key, the map, factual findings, evidence-backed actions and downloads remain usable. New Groq explanations require valid project access and available quota. Online generation is enabled by default; `HARVESTGUARD_AI_ENABLED=0` in the server environment disables it for isolated local review. A new cloud instance starts without the local AI cache and uses the same bounded request handling as the local application.
 
 ## 4. Verify and share
 
@@ -51,4 +51,4 @@ Install `requirements.txt`, then run `streamlit run harvestguard_app.py`. Open t
 
 ## Optional Docker or Render hosting
 
-The included Dockerfile and `render.yaml` remain available for other hosting choices. Build with `docker build -t harvestguard .` and run with `docker run --rm -p 8501:8501 -e GEMINI_API_KEY -e GEMINI_MODEL harvestguard`. Export the key privately in the invoking environment. The image listens on `PORT` when provided, otherwise 8501, and runs as an unprivileged user. For Render, create a Blueprint from `render.yaml` and set the key privately in its environment settings.
+The included Dockerfile and `render.yaml` remain available for other hosting choices. Build with `docker build -t harvestguard .` and run with `docker run --rm -p 8501:8501 -e GROQ_API_KEY -e GROQ_MODEL harvestguard`. Export the key privately in the invoking environment. The image listens on `PORT` when provided, otherwise 8501, and runs as an unprivileged user. For Render, create a Blueprint from `render.yaml` and set the key privately in its environment settings.

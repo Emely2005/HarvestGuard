@@ -10,9 +10,10 @@ import tomllib
 import streamlit as st
 
 from harvestguard_ai import (
-    DEFAULT_MODEL, build_evidence_packet, generate_analysis, load_context,
+    build_evidence_packet, load_context,
     load_local_explanation, render_text, request_fingerprint,
 )
+from harvestguard_groq import DEFAULT_MODEL, generate_analysis
 from harvestguard_ai_cache import lookup_explanation, request_explanation, retry_explanation
 from harvestguard_data import MODEL_FOLDER
 from harvestguard_decisions import brief_to_markdown
@@ -59,7 +60,7 @@ def analysis_to_markdown(analysis, packet, *, model, generated_at):
     identity = packet["identity"]
     lines = [f"# HarvestGuard intervention plan: {identity['district']}", "",
              f"{identity['crop']} | Season {identity['season']} {identity['year']}",
-             f"Google Gemini ({model}) | Generated {generated_at}", ""]
+             f"Groq ({model}) | Generated {generated_at}", ""]
     for key, heading in (("meaning", "What the estimate means"), ("ranking", "Intervention priority"), ("official_briefing", "Decision brief")):
         lines.extend([f"## {heading}", "", render_text(analysis[key], packet), "", _references(analysis[key], packet), ""])
     for insight in analysis["insights"]:
@@ -126,7 +127,7 @@ def _render_summary(brief, packet=None, analysis=None, *, evidence_info=None, im
 
     st.markdown("### AI insights" if analysis else "### Model findings")
     if analysis:
-        st.caption("Generated automatically · Gemini · Linked to model evidence")
+        st.caption("Generated automatically · Groq · Linked to model evidence")
     findings = [("Model finding" if item["type"] in {"local_model", "global_pattern"} else "Data finding",
                  _finding_title(item), render_text(item, packet))
                 for item in (analysis or {}).get("insights", []) if item["type"] not in {"limitation", "hypothesis"}][:2]
@@ -196,8 +197,8 @@ def _retry_controls(packet, saved):
     if remaining:
         st.caption(f"Retry available in {remaining} seconds.")
     if st.button("Retry AI", key="retry_ai", disabled=remaining > 0):
-        if retry_explanation(packet, _setting("GEMINI_API_KEY").strip(),
-                             model=_setting("GEMINI_MODEL", DEFAULT_MODEL).strip(), question=AUTO_QUESTION):
+        if retry_explanation(packet, _setting("GROQ_API_KEY").strip(),
+                             model=_setting("GROQ_MODEL", DEFAULT_MODEL).strip(), question=AUTO_QUESTION):
             st.session_state.setdefault("_ai_retry_cycles", {})[st.session_state.get("_ai_active")] = 0
             st.rerun()
 
@@ -205,7 +206,7 @@ def _retry_controls(packet, saved):
 def _details(brief, packet, saved, evidence_info=None):
     with st.expander("AI explanation & evidence"):
         if saved and "analysis" in saved:
-            st.caption(f"Google Gemini ? {saved['model']} ? Generated {saved['generated_at']}" + (" ? Saved explanation" if saved.get("cached") else ""))
+            st.caption(f"Groq ? {saved['model']} ? Generated {saved['generated_at']}" + (" ? Saved explanation" if saved.get("cached") else ""))
         elif saved and "error" in saved:
             st.write(saved["error"])
             if saved.get("validation_issue"):
@@ -243,8 +244,8 @@ def render_ai_advisor(brief, view, app_dir, *, model_dir=None):
         _details(brief, None, None)
         _download_explanation(brief, brief_to_markdown(brief))
         return
-    api_key = _setting("GEMINI_API_KEY").strip() if _setting("HARVESTGUARD_AI_ENABLED", "1").strip() != "0" else ""
-    model = _setting("GEMINI_MODEL", DEFAULT_MODEL).strip()
+    api_key = _setting("GROQ_API_KEY").strip() if _setting("HARVESTGUARD_AI_ENABLED", "1").strip() != "0" else ""
+    model = _setting("GROQ_MODEL", DEFAULT_MODEL).strip()
     _sync_configured_key(api_key)
     saved = None
     if api_key:

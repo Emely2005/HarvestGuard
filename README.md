@@ -20,7 +20,13 @@ python -m streamlit run harvestguard_app.py
 
 `dashboard.py` is a compatibility entry point for the same application. Choose crop and season on Map, select a district, then open Insights. Metadata and Methodology contains survey PDFs, source references, formulas, model errors, predictive importance and limitations.
 
-For AI explanations, set `GEMINI_API_KEY` privately in the environment or ignored `.streamlit/secrets.toml`. See [AI setup](AI_SETUP.md) and [Deployment](DEPLOYMENT.md). The dashboard sends aggregate evidence to Gemini; factual findings and planning actions remain available without online generation.
+For AI explanations, set `GROQ_API_KEY` privately in the environment or ignored `.streamlit/secrets.toml`. See [AI setup](AI_SETUP.md) and [Deployment](DEPLOYMENT.md). The dashboard sends aggregate evidence to Groq; factual findings and planning actions remain available without online generation.
+
+## Ask HarvestGuard
+
+Open **Ask HarvestGuard** in the sidebar, type a question, and press Enter. Ask why a district ranks where it does, compare named districts, or ask how the data and model were prepared. The assistant retrieves matching aggregate results and methodology, checks numerical tokens and evidence references, and provides expandable sources, follow-up questions and an answer download. The current filters supply the default context; naming a different district, crop or season changes the question context. Chat history stays in the browser session and can be cleared.
+
+Questions and relevant aggregate evidence are sent to Groq. Farmer-level inputs and credentials are never retrieved for answers. Local model comparisons are not causal explanations or measured intervention benefits.
 
 ## Follow the data and code
 
@@ -56,4 +62,4 @@ The release builder includes only explicitly named files, clears notebook output
 
 The displayed quantities cover sampled production; survey expansion weights were not supplied. Validation is retrospective. Separate kg-ranking accuracy and intervention benefits have not been established.
 
-The project idea, problem framing and decisions belong to the HarvestGuard team. OpenAI Codex assisted implementation, debugging, documentation and testing. Google Gemini drafts explanations from aggregate evidence. The team reviews the work and remains responsible for the submission.
+The project idea, problem framing and decisions belong to the HarvestGuard team. OpenAI Codex assisted implementation, debugging, documentation and testing. Groq drafts explanations from aggregate evidence. The team reviews the work and remains responsible for the submission.

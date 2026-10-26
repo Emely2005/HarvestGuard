@@ -21,9 +21,10 @@ The verified coverage is 50,475 scored 2025 profiles, 30 districts, 15 crops and
 3. Switch to Nyarugenge and show how a high loss percentage can coexist with a much smaller loss volume. Compare the district's crop portfolio and seasonal pattern.
 4. Open Metadata and Methodology to show NISR documentation, the recorded selected-model errors, formulas, climate provenance and predictive importance.
 5. Download a district explanation and ranking for a planning discussion. Describe a pilot measurement workflow without claiming unmeasured benefits.
+6. Open **Ask HarvestGuard** and ask why the selected district ranks where it does for Sorghum. Show its data-linked answer, source references, follow-up questions and answer download. Ask about data preparation to show that missing provenance is acknowledged.
 
 ## AI assistance disclosure
 
-The project idea, problem framing and decisions belong to the HarvestGuard team. OpenAI Codex was used as a development assistant for implementation, debugging, documentation and testing. Google Gemini drafts plain-language explanations from selected aggregate evidence in the application. The team reviews the work, acknowledges sources and remains responsible for the submission and interpretations.
+The project idea, problem framing and decisions belong to the HarvestGuard team. OpenAI Codex was used as a development assistant for implementation, debugging, documentation and testing. Groq drafts plain-language explanations from selected aggregate evidence in the application. The team reviews the work, acknowledges sources and remains responsible for the submission and interpretations.
 
 The [official competition page](https://statistics.gov.rw/about/hackathon/2026-hackathon-competition) requires a public GitHub repository, a deployed application link and documentation. It gives a submission deadline of **30 October 2026, 11:59 PM**. Confirm the team meets participation and originality requirements when submitting.

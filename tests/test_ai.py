@@ -70,6 +70,32 @@ def valid_response(packet):
     }
 
 
+def test_groq_narrative_normalizes_list_labels_and_uses_selected_plan_sources(packet, monkeypatch):
+    import harvestguard_groq
+    draft = valid_response(packet)
+    draft["next_steps"]["text"] = "1. Review storage conditions. 2. Assess processing capacity."
+    option = packet["interventions"][0]
+    draft["recommendations"][0]["evidence_ids"] = ["limitations"]
+    monkeypatch.setattr(harvestguard_groq, "call_json", lambda *args, **kwargs: deepcopy(draft))
+    result = harvestguard_groq.generate_analysis(packet, "test-secret")
+    assert result["next_steps"]["text"] == "First, Review storage conditions. Second, Assess processing capacity."
+    assert set(["intervention_" + option["id"], *option.get("required_evidence_ids", [])]).issubset(
+        result["recommendations"][0]["evidence_ids"])
+    draft["next_steps"]["text"] = "The loss was 999999 kg."
+    with pytest.raises(AIResponseError):
+        harvestguard_groq.generate_analysis(packet, "test-secret")
+
+
+@pytest.mark.parametrize("claim", ["Larger fields drive losses.", "A few farms account for most loss."])
+def test_groq_narrative_rejects_cause_and_changed_sample_unit(packet, monkeypatch, claim):
+    import harvestguard_groq
+    draft = valid_response(packet)
+    draft["meaning"]["text"] = claim
+    monkeypatch.setattr(harvestguard_groq, "call_json", lambda *args, **kwargs: deepcopy(draft))
+    with pytest.raises(AIResponseError):
+        harvestguard_groq.generate_analysis(packet, "test-secret")
+
+
 def test_packet_joins_only_matching_context_and_converts_percent_correctly(inputs, packet):
     brief, peers = inputs
     assert packet["display_values"]["kg_per_tonne"] == "5.79 kg per tonne"
@@ -319,10 +345,10 @@ def test_connection_check_sends_only_a_tiny_non_agricultural_prompt(monkeypatch)
 
 def test_private_settings_are_found_independently_of_shell_directory(tmp_path, monkeypatch):
     settings = tmp_path / "secrets.toml"
-    settings.write_text('GEMINI_API_KEY = "private-test-key"\n', encoding="utf-8")
-    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    settings.write_text('GROQ_API_KEY = "private-test-key"\n', encoding="utf-8")
+    monkeypatch.delenv("GROQ_API_KEY", raising=False)
     monkeypatch.setattr(harvestguard_ai_view, "PRIVATE_SETTINGS", settings)
-    assert harvestguard_ai_view._setting("GEMINI_API_KEY") == "private-test-key"
+    assert harvestguard_ai_view._setting("GROQ_API_KEY") == "private-test-key"
 
 
 
@@ -348,7 +374,7 @@ def test_malformed_provider_content_fails_with_readable_error(packet, monkeypatc
 
 def test_insights_generate_automatically_and_reuse_each_selection(monkeypatch):
     calls = []
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "private-test-key" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "private-test-key" if name == "GROQ_API_KEY" else default)
     def generate(packet, api_key, **kwargs):
         assert api_key == "private-test-key"
         calls.append(packet["identity"])
@@ -391,7 +417,7 @@ def test_insights_generate_automatically_and_reuse_each_selection(monkeypatch):
 def test_replacing_private_key_regenerates_with_no_old_session_override(monkeypatch):
     config = {"key": "original-test-key"}
     calls = []
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": config["key"] if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": config["key"] if name == "GROQ_API_KEY" else default)
     def generate(packet, api_key, **kwargs):
         calls.append(api_key)
         return valid_response(packet)
@@ -412,7 +438,7 @@ def test_unverified_response_shows_evidence_and_does_not_retry_on_rerun(monkeypa
     clock = {"now": 1000}
     monkeypatch.setattr(harvestguard_ai_cache, "time", SimpleNamespace(time=lambda: clock["now"]))
     monkeypatch.setattr(harvestguard_ai_view, "time", SimpleNamespace(time=lambda: clock["now"]))
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "private-test-key" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "private-test-key" if name == "GROQ_API_KEY" else default)
     def generate(*args, **kwargs):
         calls.append(True)
         raise AIResponseError("The generated explanation could not be verified after an automatic correction.", "Test issue")
@@ -594,7 +620,7 @@ def test_ui_recovers_after_rate_limit_and_summary_tracks_new_selection(monkeypat
     clock, calls = {"now": 1000}, []
     monkeypatch.setattr(harvestguard_ai_cache, "time", SimpleNamespace(time=lambda: clock["now"]))
     monkeypatch.setattr(harvestguard_ai_view, "time", SimpleNamespace(time=lambda: clock["now"]))
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GROQ_API_KEY" else default)
     def generate(packet, *args, **kwargs):
         calls.append(packet["identity"]["district"])
         if len(calls) == 1:
@@ -635,7 +661,7 @@ def test_more_evidence_does_not_expand_the_provider_grammar(packet):
 
 def test_interface_displays_the_actions_selected_by_ai(monkeypatch):
     chosen, unused = [], []
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GROQ_API_KEY" else default)
     def generate(packet, *args, **kwargs):
         assert len(packet["interventions"]) >= 3
         option = packet["interventions"][-1]
@@ -738,7 +764,7 @@ def test_ui_stops_automatic_recovery_during_persistent_outage(monkeypatch):
     clock, calls = {"now": 1000}, []
     monkeypatch.setattr(harvestguard_ai_cache, "time", SimpleNamespace(time=lambda: clock["now"]))
     monkeypatch.setattr(harvestguard_ai_view, "time", SimpleNamespace(time=lambda: clock["now"]))
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GROQ_API_KEY" else default)
     def generate(*args, **kwargs):
         calls.append(True)
         raise AIError("Google is temporarily busy.", code="provider_busy", retryable=True, http_status=503)
@@ -761,7 +787,7 @@ def test_ui_stops_automatic_recovery_during_persistent_outage(monkeypatch):
 
 def test_filters_work_while_background_ai_is_waiting(monkeypatch):
     entered, release = Event(), Event()
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "test-key" if name == "GROQ_API_KEY" else default)
     def generate(packet, *args, **kwargs):
         entered.set()
         assert release.wait(timeout=20)

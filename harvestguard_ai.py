@@ -23,7 +23,7 @@ from jsonschema import ValidationError, validate
 
 
 DEFAULT_MODEL = "gemini-3.1-flash-lite"
-PROMPT_VERSION = "harvestguard-intervention-planner-5"
+PROMPT_VERSION = "harvestguard-intervention-planner-6-groq"
 NUMBER = re.compile(r"(?<![\w.])[-+]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?![\w.])")
 
 

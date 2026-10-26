@@ -12,6 +12,7 @@ FILES = [
     "harvestguard_app.py", "dashboard.py", "harvestguard_ai.py", "harvestguard_ai_cache.py", "harvestguard_ai_view.py",
     "harvestguard_data.py", "harvestguard_decisions.py", "harvestguard_insights.py", "harvestguard_insights_export.py",
     "harvestguard_map.py", "harvestguard_ui.py", "harvestguard_views.py", "harvestguard_methodology.py", "harvestguard_model_v3.py",
+    "harvestguard_groq.py", "harvestguard_chat.py", "harvestguard_chat_view.py",
     "README.md", "METHODOLOGY.md", "DEPLOYMENT.md", "SUBMISSION.md", "AI_SETUP.md", "MODEL_REVIEW.md", "PROJECT_AUDIT.md",
     "requirements.txt", "requirements-web.txt", "requirements-dev.txt", "Dockerfile", "render.yaml", ".dockerignore", ".gitignore",
     ".streamlit/config.toml", ".streamlit/secrets.toml.example",
@@ -69,13 +70,14 @@ FILES += [
     'tests/test_methodology.py',
     'tests/test_quantity_priorities.py',
     'tests/test_release.py',
+    'tests/test_project_chat.py',
     'tests/test_v3_integration.py',
     'model_review_tests/requirements.txt',
     'model_review_tests/test_loss_quantities.py',
     'model_review_tests/test_model_v3.py',
 ]
 FORBIDDEN_PARTS = {".git", ".runtime", ".aws", ".codex", ".agents", "__pycache__", ".pytest_cache", ".venv"}
-SECRET = re.compile(r"AIza[0-9A-Za-z_-]{35}|sk-[0-9A-Za-z_-]{24,}|ghp_[0-9A-Za-z_]{20,}|github_pat_[0-9A-Za-z_]{20,}")
+SECRET = re.compile(r"AIza[0-9A-Za-z_-]{35}|gsk_[0-9A-Za-z]{20,}|sk-[0-9A-Za-z_-]{24,}|ghp_[0-9A-Za-z_]{20,}|github_pat_[0-9A-Za-z_]{20,}")
 
 
 def approved_files(root=ROOT):

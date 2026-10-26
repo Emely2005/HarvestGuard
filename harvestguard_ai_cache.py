@@ -11,7 +11,8 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 
-from harvestguard_ai import AIError, generate_analysis, request_fingerprint, validate_analysis
+from harvestguard_ai import AIError, request_fingerprint, validate_analysis
+from harvestguard_groq import generate_analysis
 
 
 CACHE_DIR = Path(__file__).resolve().parent / ".runtime" / "ai_cache"

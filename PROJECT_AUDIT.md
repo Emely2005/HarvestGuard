@@ -6,6 +6,8 @@ Reviewed on 26 October 2026. The review read and inventoried 130 substantive fil
 
 Use the reading order and workflow table in [README](README.md). The selected model is `harvestguard-v3-candidate-1`, trial 6. The current map data are `model_v3_quantity_results/harvestguard_2025_v3_quantity_priorities.csv`. There is one current methodology, submission brief and model record.
 
+The application also includes the project question assistant in `harvestguard_chat.py` and `harvestguard_chat_view.py`, with the current Groq service adapter in `harvestguard_groq.py`. These modules retrieve checked aggregate evidence and public project documents, validate answers and provide the question interface. The fitted loss model, private inputs and recorded quantity/insight exports are unchanged. See `AI_SETUP.md` for private configuration and the assistant's evidence boundaries.
+
 `PUBLIC_RELEASE_MANIFEST.json` lists every approved public file with its size and SHA256. It is regenerated with each release. The application modules, knowledge base, configuration, survey PDFs, cleaning code and audits, both notebooks, selected model, original validation evidence, aggregate quantity and insight outputs, tests and release tooling are retained because they run, reproduce, document or verify this project.
 
 ## Missing steps and inputs

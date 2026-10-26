@@ -19,6 +19,7 @@ from harvestguard_decisions import build_brief, load_knowledge_base
 from harvestguard_map import build_map
 from harvestguard_ui import apply_design, hero, card, ranking_cards
 from harvestguard_ai_view import render_ai_advisor
+from harvestguard_chat_view import render_project_assistant
 from harvestguard_data import MODEL_FOLDER, dashboard_signature, load_dashboard_data, rank_districts
 
 st.set_page_config(
@@ -53,7 +54,7 @@ apply_design()
 
 with st.sidebar:
     st.markdown('<div class="hg-brand"><strong>🌾 HarvestGuard</strong><small>RWANDA · PROTECT EVERY HARVEST</small></div>', unsafe_allow_html=True)
-    page = st.radio("Explore", ["Map", "Insights"], key="page", horizontal=True)
+    page = st.radio("Explore", ["Map", "Insights", "Ask HarvestGuard"], key="page", horizontal=True)
     st.divider()
     seasons = sorted(risk["season"].dropna().astype(str).unique().tolist())
     season = st.selectbox("Season", seasons, key="season")
@@ -89,11 +90,15 @@ with st.sidebar:
     st.caption("2025 historical predictions")
     st.caption("Storage · Processing · Packaging")
     st.divider()
-    st.caption("Choose a district, then open Insights. Explanations appear automatically.")
+    st.caption("Choose a district to explore Insights or ask HarvestGuard a question.")
 
 selected = view.loc[view["district"] == selected_district].iloc[0]
 def show_insights():
     st.session_state["page"] = "Insights"
+
+
+def show_assistant():
+    st.session_state["page"] = "Ask HarvestGuard"
 
 
 if page == "Map":
@@ -124,7 +129,7 @@ if page == "Map":
         st.dataframe(table, width="stretch", hide_index=True, column_config={"Expected loss %": st.column_config.NumberColumn(format="%.2f")})
         st.caption("Profile count describes sample support, not confidence. " + scope_note)
         st.download_button("Download ranking", table.to_csv(index=False).encode("utf-8"), file_name=f"harvestguard_{season}_{crop.replace(' ', '_')}_ranking_2025.csv", mime="text/csv")
-else:
+elif page == "Insights":
     hero(f"{selected_district}: from insight to action", "Understand the prediction. Prioritize intervention using our findings.", f"{crop} · Season {season} · 2025")
     one, two, three = st.columns(3)
     one.metric("Estimated loss" if quantity else "Expected loss", f"{float(selected['predicted_loss_kg']):,.2f} kg" if quantity else f"{float(selected['predicted_loss_pct']):.2f}%")
@@ -146,6 +151,12 @@ else:
         st.error("The supporting evidence could not be loaded. The saved prediction is shown above.")
         st.stop()
     render_ai_advisor(brief, view, APP_DIR, model_dir=MODEL_DIR)
+    st.button("Ask about these findings ?", on_click=show_assistant, key="open_project_assistant", type="primary")
+
+else:
+    hero("Ask HarvestGuard", "Understand the findings. Ask a question grounded in our project evidence.", "YOUR PROJECT ASSISTANT")
+    render_project_assistant(risk, metadata, APP_DIR, MODEL_DIR,
+                             {"district": selected_district, "crop": crop, "season": season})
 
 with st.expander("Metadata and Methodology"):
     render_model_evidence(metadata, readiness, MODEL_DIR)

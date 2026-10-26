@@ -21,12 +21,12 @@ def _text(app):
 
 
 @pytest.mark.parametrize("entrypoint", ["harvestguard_app.py", "dashboard.py"])
-def test_two_views_follow_filters_and_work_without_ai(monkeypatch, entrypoint):
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "" if name == "GEMINI_API_KEY" else default)
+def test_views_follow_filters_and_work_without_ai(monkeypatch, entrypoint):
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "" if name == "GROQ_API_KEY" else default)
     app = AppTest.from_file(str(ROOT / entrypoint)).run(timeout=40)
     assert not app.exception, [error.message for error in app.exception]
     assert not app.error
-    assert app.radio(key="page").options == ["Map", "Insights"]
+    assert app.radio(key="page").options == ["Map", "Insights", "Ask HarvestGuard"]
     assert len(app.get("plotly_chart")) >= 1
     assert "Nyagatare" in _text(app)
     assert "64,545.97 kg" in _text(app)

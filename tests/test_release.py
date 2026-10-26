@@ -22,6 +22,7 @@ def test_release_allowlist_excludes_secrets_runtime_and_farmer_predictions():
 def test_credential_scan_recognises_common_provider_token_formats():
     assert SECRET.search("AIza" + "x" * 35)
     assert SECRET.search("github_pat_" + "x" * 35)
+    assert SECRET.search("gsk_" + "x" * 48)
     assert not SECRET.search("YOUR_GEMINI_API_KEY")
 
 

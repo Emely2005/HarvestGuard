@@ -94,7 +94,7 @@ def test_ai_uses_v3_evidence_and_does_not_reuse_other_model_versions(monkeypatch
         return packet
 
     monkeypatch.setattr(harvestguard_ai_view, "build_evidence_packet", capture)
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "" if name == "GROQ_API_KEY" else default)
     app = AppTest.from_file(str(ROOT / "dashboard.py")).run(timeout=40)
     app.radio(key="page").set_value("Insights").run(timeout=40)
     assert not app.exception

@@ -100,7 +100,7 @@ def test_dashboard_ranks_and_explains_quantity_without_ai(quantity_bundle, monke
     loaded = load_model_data(quantity_bundle)
     monkeypatch.setattr(harvestguard_data, "load_model_data", lambda _: loaded)
     monkeypatch.setattr(harvestguard_data, "dashboard_signature", lambda _: ("quantity-test", str(quantity_bundle)))
-    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "" if name == "GEMINI_API_KEY" else default)
+    monkeypatch.setattr(harvestguard_ai_view, "_setting", lambda name, default="": "" if name == "GROQ_API_KEY" else default)
     app = AppTest.from_file(str(ROOT / "dashboard.py")).run(timeout=40)
     assert not app.exception
     assert next(m for m in app.metric if m.label == "First in this selection").value == "Nyagatare"

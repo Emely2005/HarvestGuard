@@ -27,6 +27,7 @@ STAGES = {
                              "model_v3_quantity_results/quantity_aggregation_metadata.json"],
     "insight export": ["harvestguard_insights_export.py", "model_v3_insights/district_evidence.json"],
     "deployment": ["harvestguard_app.py", "requirements.txt", "requirements-web.txt", ".streamlit/config.toml"],
+    "project question assistant": ["harvestguard_chat.py", "harvestguard_chat_view.py", "harvestguard_groq.py"],
 }
 
 # These are suggested locations, not claims about the original filenames.
