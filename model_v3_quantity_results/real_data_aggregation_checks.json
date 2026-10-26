@@ -1,0 +1,20 @@
+{
+  "input_file": "postharvest_regression_model_ready_2024_2025_with_production.csv",
+  "input_rows": 125422,
+  "year": 2025,
+  "eligible_profiles_scored": 50475,
+  "district_crop_season_groups": 944,
+  "production_source_column": "total_crop_production",
+  "production_unit": "kg (user-confirmed)",
+  "model_retrained": false,
+  "source_model_unchanged": true,
+  "per_profile_conversion_checked": true,
+  "group_sums_checked": true,
+  "maximum_difference_from_saved_group_mean_predictions_pp": 8.896215986098355e-10,
+  "quantity_scope": "sample_total",
+  "profile_predictions_file": "profile_quantity_predictions_2025.csv",
+  "district_quantity_file": "harvestguard_2025_v3_quantity_priorities.csv",
+  "uploaded_colab_groups_checked": 944,
+  "uploaded_colab_ranks_match": true,
+  "uploaded_colab_max_absolute_quantity_difference_kg": 2.5962591053030337e-05
+}

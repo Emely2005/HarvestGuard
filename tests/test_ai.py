@@ -29,12 +29,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 @pytest.fixture
 def inputs():
-    data = pd.read_csv(ROOT / "model_v2" / "harvestguard_2025_v2_vulnerability.csv")
+    data = pd.read_csv(ROOT / "tests" / "fixtures" / "legacy_v2" / "harvestguard_2025_v2_vulnerability.csv")
     view = data.loc[(data.season == "A") & (data.crop_name == "Maize")].copy()
     view["display_rank"] = view.predicted_loss_pct.rank(method="first", ascending=False).astype(int)
     row = view.loc[view.district == "Nyagatare"].iloc[0].to_dict()
     kb = load_knowledge_base(ROOT / "knowledge_base" / "interventions.json")
-    metadata = json.loads((ROOT / "model_v2" / "model_v2_metadata.json").read_text(encoding="utf-8"))
+    metadata = json.loads((ROOT / "tests" / "fixtures" / "legacy_v2" / "model_v2_metadata.json").read_text(encoding="utf-8"))
     brief = build_brief(row, metadata, kb, district_count=len(view))
     return brief, view.to_dict("records")
 

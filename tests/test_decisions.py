@@ -77,8 +77,8 @@ def test_uncited_interventions_fail_closed(kb, tmp_path):
 
 
 def test_all_real_scoring_rows_produce_consistent_briefs(kb):
-    metadata = json.loads((ROOT / "model_v2" / "model_v2_metadata.json").read_text(encoding="utf-8"))
-    data = pd.read_csv(ROOT / "model_v2" / "harvestguard_2025_v2_vulnerability.csv")
+    metadata = json.loads((ROOT / "tests" / "fixtures" / "legacy_v2" / "model_v2_metadata.json").read_text(encoding="utf-8"))
+    data = pd.read_csv(ROOT / "tests" / "fixtures" / "legacy_v2" / "harvestguard_2025_v2_vulnerability.csv")
     original_kb = deepcopy(kb)
     assert not data.duplicated(["season", "crop_name", "district"]).any()
     for (_, crop), group in data.groupby(["season", "crop_name"]):

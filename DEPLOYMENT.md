@@ -6,6 +6,8 @@ The application runs directly from aggregate exports. It does not load the train
 
 Run `python scripts/build_public_release.py`. The builder prints the release directory and ZIP path and records them in `.runtime/public_release/latest.json`. Publish the **contents of that release directory** to the root of the new public `HarvestGuard` repository on branch `main`. Do not upload the ZIP itself as the application or upload the entire working directory.
 
+For the existing repository, also remove files absent from the new release; uploading replacements alone leaves obsolete files visible. In particular, the old root `model_v2/` files and `model_v3_candidate/ranking_detail_candidate.csv` are no longer submission files. The retained V2 regression fixtures are explicitly labelled under `tests/fixtures/legacy_v2/`. Use `PUBLIC_RELEASE_MANIFEST.json` to compare the resulting repository tree. See [Project audit](PROJECT_AUDIT.md) for missing source steps and the private archive policy.
+
 The release contains the application modules, `.streamlit/config.toml`, knowledge base, aggregate exports, model provenance, methodology, preprocessing code, survey documentation and tests. It excludes private settings, credentials, runtime caches, individual profile predictions and raw survey/climate data. Notebook outputs are cleared in the release copy; local originals are retained.
 
 If publishing through GitHub's website, create the repository, choose **Add file > Upload files**, upload the extracted release contents while preserving directories, and commit to `main`. Include the hidden `.streamlit` folder, containing the public theme and placeholder example only. A connected GitHub plugin can publish the same reviewed files directly.

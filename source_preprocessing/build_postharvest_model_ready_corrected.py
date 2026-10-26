@@ -31,7 +31,7 @@ Scientific choices:
 Run:
     python build_unified_postharvest_dataset.py
 or:
-    python build_unified_postharvest_dataset.py --input-dir /path/to/files --output-dir /path/to/output
+    python build_postharvest_model_ready_corrected.py --input-dir /path/to/files --output-dir /path/to/output
 """
 
 from __future__ import annotations

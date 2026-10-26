@@ -33,7 +33,7 @@ This aggregation run does not establish new ranking accuracy or intervention ben
 
 ## Files
 
-- `profile_quantity_predictions_2025.csv`: individual profile predictions and kg losses.
+- `profile_quantity_predictions_2025.csv`: private individual profile predictions and kg losses; retained locally and excluded from the public release.
 - `harvestguard_2025_v3_quantity_priorities.csv`: district/crop/season quantities and ranks.
 - `quantity_aggregation_metadata.json`: source identity, input/model hashes, units and scope.
 - `real_data_aggregation_checks.json`: verification and uploaded Colab comparison.
