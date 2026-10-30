@@ -11,7 +11,7 @@ The deployed dashboard uses one saved model: **harvestguard-v3-candidate-1, tria
 3. Read [Project audit](PROJECT_AUDIT.md) for retained files, removed duplicates and the remaining reproduction gaps.
 4. Read [Selected model record](MODEL_REVIEW.md) for the model and validation evidence used by this application.
 5. Watch [Demonstration](https://www.youtube.com/watch?v=2ypEITcIfuM&feature=youtu.be) for how to use the application.
-6. Review our [University-Proof](University Proof.pdf)
+6. Review our [University Proof](University-Proof.pdf)
 
 ## Run the dashboard
 
