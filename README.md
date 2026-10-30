@@ -62,4 +62,4 @@ The release builder includes only explicitly named files, clears notebook output
 
 The displayed quantities cover sampled production; survey expansion weights were not supplied. Validation is retrospective. Separate kg-ranking accuracy and intervention benefits have not been established.
 
-The project idea, problem framing and decisions belong to the HarvestGuard team. OpenAI Codex assisted implementation, debugging, documentation and testing. Groq drafts explanations from aggregate evidence. The team reviews the work and remains responsible for the submission.
+The project idea, problem framing and decisions belong to the HarvestGuard team. OpenAI assisted implementation, debugging, documentation and testing. Groq drafts explanations from aggregate evidence. The team reviews the work and remains responsible for the submission.
