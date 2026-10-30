@@ -47,19 +47,4 @@ The source surveys are NISR's [2024](https://microdata.statistics.gov.rw/index.p
 
 Raw survey archives, the private unified CSVs and individual profile predictions belong in the private working collection. They are excluded from GitHub. **The original 2025 pre-merge code and exact production-bearing export step are still missing from this project.** The recorded cleaning output has 125,412 rows; the inference input has 125,422. The audit explains this unresolved difference. The existing training and aggregation code must not be presented as complete raw-to-deployment reproduction until these steps are recovered.
 
-## Check the submission
-
-```powershell
-python -m pip install -r requirements-dev.txt
-python -m pytest tests -q
-python scripts/audit_project.py --verify-manifest
-python scripts/build_public_release.py
-```
-
-The audit reports missing required files and unresolved source steps. Add `--data-dir PATH --raw-dir PATH --require-reproducibility` to inspect private inputs and return a failure when the full reproduction chain is incomplete. See [Project audit](PROJECT_AUDIT.md).
-
-The release builder includes only explicitly named files, clears notebook outputs in the release copy, checks for credential patterns and produces a checksummed manifest. Historical archives, caches, private settings and individual records are excluded. The dashboard reads aggregate exports; it does not fit or load the training model, but checks its provenance.
-
-The displayed quantities cover sampled production; survey expansion weights were not supplied. Validation is retrospective. Separate kg-ranking accuracy and intervention benefits have not been established.
-
-The project idea, problem framing and decisions belong to the HarvestGuard team. OpenAI assisted implementation, debugging, documentation and testing. Groq drafts explanations from aggregate evidence. The team reviews the work and remains responsible for the submission.
+ 
